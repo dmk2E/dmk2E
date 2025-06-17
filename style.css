@@ -1,0 +1,47 @@
+/*共通項目定義*/
+a{
+    text-decoration:none;
+}
+
+a:hover{
+    font-weight:bold;
+    text-decoration:underline;
+    color:#00f;
+}
+
+.RelatedLinks{
+    font-size:20px;
+    background-color:#aaa;
+}
+
+li[class="Explanation"]{
+    font-weight:350;
+    font-family:"Helvetica Neue",sans-serif;
+}
+
+h3 + p{
+    font-size:20px;
+}
+
+/*個別項目定義*/
+#TITLE_OF_PROFILE{
+    font-size:30px;
+    text-align:center;
+}
+ /*Profiles*/
+
+
+ /*Productions*/
+
+section[id="PRODUCTIONS"]{
+    color:#fff;
+    background-color:#333;
+}
+
+#PRODUCTIONS a{
+    color:#fff;
+}
+
+#PRODUCTIONS div:hover{
+    background-color:#550;
+}
