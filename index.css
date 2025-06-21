@@ -9,9 +9,27 @@ a:hover{
     color:#00f;
 }
 
-.RelatedLinks{
+div[class="RelatedLinks"]{
     font-size:20px;
     background-color:#aaa;
+    border:5px #000 dashed;
+    box-sizing:border-box;
+    padding:0px 5px 5px 10px;
+    border-radius:10px;
+}
+
+.RelatedLinks p{
+    padding:0px 0px 10px 0px;
+    height:5px;
+}
+
+.RelatedLinks ol{
+    padding-left:20px;
+}
+
+.RelatedLinks ol:hover{
+    background-color:#aa0;
+    width:150px;
 }
 
 li[class="Explanation"]{
@@ -36,6 +54,7 @@ h3 + p{
 section[id="PRODUCTIONS"]{
     color:#fff;
     background-color:#333;
+    padding-left:5px;
 }
 
 #PRODUCTIONS a{
