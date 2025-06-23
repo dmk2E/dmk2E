@@ -21,10 +21,14 @@ div[class="RelatedLinks"]{
 .RelatedLinks p{
     padding:0px 0px 10px 0px;
     height:5px;
+    margin:5px 0px 15px 0px;
 }
 
 .RelatedLinks ol{
     padding-left:20px;
+    margin-top:2px;
+    margin-bottom:2px;
+    width:150px;
 }
 
 .RelatedLinks ol:hover{
