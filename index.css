@@ -9,33 +9,6 @@ a:hover{
     color:#00f;
 }
 
-div[class="RelatedLinks"]{
-    font-size:20px;
-    background-color:#aaa;
-    border:5px #000 dashed;
-    box-sizing:border-box;
-    padding:0px 5px 5px 10px;
-    border-radius:10px;
-}
-
-.RelatedLinks p{
-    padding:0px 0px 10px 0px;
-    height:5px;
-    margin:5px 0px 15px 0px;
-}
-
-.RelatedLinks ol{
-    padding-left:20px;
-    margin-top:2px;
-    margin-bottom:2px;
-    width:150px;
-}
-
-.RelatedLinks ol:hover{
-    background-color:#aa0;
-    width:150px;
-}
-
 li[class="Explanation"]{
     font-weight:350;
     font-family:"Helvetica Neue",sans-serif;
@@ -50,8 +23,53 @@ h3 + p{
     font-size:30px;
     text-align:center;
 }
- /*Profiles*/
 
+/*Profiles*/
+section[id="PROFILE"] h2{
+    margin-bottom:0px;
+}
+
+section[id="PROFILE"] div{
+    display:inline-block;
+    padding:0px 0px 5px 0px;
+    width:630px;
+    margin-left:10px
+}
+
+div[class="RelatedLinks"] nav{
+    font-size:20px;
+    background-color:#aaa;
+    border:5px #000 dashed;
+    box-sizing:border-box;
+    padding:0px 5px 5px 10px;
+    border-radius:10px;
+    width:600px;
+    margin-left:200px;
+}
+
+.RelatedLinks p{
+    text-align:center;
+    padding:0px 0px 10px 0px;
+    height:5px;
+    margin:5px 0px 15px 0px;
+}
+
+.RelatedLinks ul{
+    display:inline-block;
+    width:200px;
+}
+
+.RelatedLinks ul{
+    padding-left:20px;
+    margin-top:2px;
+    margin-bottom:2px;
+    width:150px;
+    display:inline-block;
+}
+
+.RelatedLinks nav span :hover{
+    background-color:#aa0;
+}
 
  /*Productions*/
 
