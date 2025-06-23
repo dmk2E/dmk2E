@@ -33,7 +33,7 @@ section[id="PROFILE"] div{
     display:inline-block;
     padding:0px 0px 5px 0px;
     width:630px;
-    margin-left:10px
+    margin-left:30px
 }
 
 div[class="RelatedLinks"] nav{
@@ -44,7 +44,7 @@ div[class="RelatedLinks"] nav{
     padding:0px 5px 5px 10px;
     border-radius:10px;
     width:600px;
-    margin-left:200px;
+    margin-left:300px;
 }
 
 .RelatedLinks p{
