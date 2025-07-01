@@ -3,6 +3,10 @@ a{
     text-decoration:none;
 }
 
+*{
+    transition:background-color 0.5s;
+}
+
 a:hover{
     font-weight:bold;
     text-decoration:underline;
@@ -32,7 +36,7 @@ section[id="PROFILE"] h2{
 section[id="PROFILE"] div{
     display:inline-block;
     padding:0px 0px 5px 0px;
-    width:630px;
+    width:570px;
     margin-left:30px
 }
 
@@ -44,7 +48,9 @@ div[class="RelatedLinks"] nav{
     padding:0px 5px 5px 10px;
     border-radius:10px;
     width:600px;
-    margin-left:300px;
+    margin-left:0px;
+    position:relative;
+    left:500px;
 }
 
 .RelatedLinks p{
@@ -55,11 +61,6 @@ div[class="RelatedLinks"] nav{
 }
 
 .RelatedLinks ul{
-    display:inline-block;
-    width:200px;
-}
-
-.RelatedLinks ul{
     padding-left:20px;
     margin-top:2px;
     margin-bottom:2px;
@@ -67,7 +68,7 @@ div[class="RelatedLinks"] nav{
     display:inline-block;
 }
 
-.RelatedLinks nav span :hover{
+.RelatedLinks nav span > ul:hover{
     background-color:#aa0;
 }
 
