@@ -30,7 +30,8 @@ h3 + p{
 
 /*Profiles*/
 section[id="PROFILE"]{
-    background-color:rgba(0,0,0,0.3);
+    background-color:rgba(0,0,0,0.1);
+    border-radius:1rem;
 }
 
 section[id="PROFILE"] h2{
