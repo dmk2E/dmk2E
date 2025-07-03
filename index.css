@@ -29,47 +29,39 @@ h3 + p{
 }
 
 /*Profiles*/
+section[id="PROFILE"]{
+    background-color:rgba(0,0,0,0.3);
+}
+
 section[id="PROFILE"] h2{
     margin-bottom:0px;
 }
 
 section[id="PROFILE"] div{
+    position:relative;
+    bottom:30px;
+    left:30em;
     display:inline-block;
     padding:0px 0px 5px 0px;
+    margin:0em 1em;
     width:570px;
-    margin-left:30px
 }
 
-div[class="RelatedLinks"] nav{
-    font-size:20px;
-    background-color:#aaa;
-    border:5px #000 dashed;
-    box-sizing:border-box;
-    padding:0px 5px 5px 10px;
-    border-radius:10px;
-    width:600px;
-    margin-left:0px;
+img[id="MY_ICON"]{
+    width:8em;
+    height:8em;
+    object-fit:cover;
+    border-radius:100%;
+    border:dashed 5px #000;
+    margin:1em;
     position:relative;
-    left:500px;
+    top:1em;
+    transition:1s;
 }
 
-.RelatedLinks p{
-    text-align:center;
-    padding:0px 0px 10px 0px;
-    height:5px;
-    margin:5px 0px 15px 0px;
-}
-
-.RelatedLinks ul{
-    padding-left:20px;
-    margin-top:2px;
-    margin-bottom:2px;
-    width:150px;
-    display:inline-block;
-}
-
-.RelatedLinks nav span > ul:hover{
-    background-color:#aa0;
+img[id="MY_ICON"]:hover{
+    border:solid 5px #000;
+    transform:scale(1.05);
 }
 
  /*Productions*/
@@ -78,6 +70,7 @@ section[id="PRODUCTIONS"]{
     color:#fff;
     background-color:#333;
     padding-left:5px;
+    border-radius:1rem;
 }
 
 #PRODUCTIONS a{
@@ -86,4 +79,70 @@ section[id="PRODUCTIONS"]{
 
 #PRODUCTIONS div:hover{
     background-color:#550;
+}
+
+div[class="RelatedLinks"] nav{
+    font-size:20px;
+    background-color:#aaa;
+    border:5px #000 dashed;
+    box-sizing:border-box;
+    padding:0px 5px 5px 10px;
+    border-radius:1rem;
+    margin-left:0px;
+    position:relative;
+}
+
+/* RelatedLinks */
+
+.RelatedLinks p{
+    text-align:center;
+    padding:0px 0px 10px 0px;
+    height:5px;
+    margin:5px 0px 15px 0px;
+}
+
+/* .RelatedLinks ul{
+    padding-left:20px;
+    margin-top:2px;
+    margin-bottom:2px;
+    width:150px;
+    display:inline-block;
+} */
+
+/* .RelatedLinks nav > span:hover{
+    background-color:#aa0;
+} */
+
+.RelatedLinks nav form{
+    display:inline;
+}
+
+.RelatedLinks nav button{
+    background-color:rgba(255,255,255,0.7);
+    text-align:center;
+    font-size:2rem;
+    width:20%;
+    border-radius:1em;
+    margin:0em 0.5em;
+    transition:0.25s;
+}
+
+button[id="LINK_ATCODER"]{
+    background:url(./assets/logos/atcoder_logo_transparent.png) no-repeat 10px 0px/1.1em;
+}
+
+button[id="LINK_QIITA"]{
+    background:url(./assets/logos/qiita-icon.png) no-repeat 10px 3px/1.0em;
+}
+
+.RelatedLinks nav button:hover{
+    text-decoration:underline;
+    text-decoration-style:solid;
+    transform:scale(1.1) translate(0em,-0.3em);
+    box-shadow:0px 0em 1em 0.1em rgba(255,255,255,0.5);
+    background-color:rgba(255,255,255,1.0);
+}
+
+nav button:hover{
+    cursor:pointer;
 }
