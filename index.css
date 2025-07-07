@@ -29,8 +29,9 @@ h3 + p{
 }
 
 /*Profiles*/
-section[id="PROFILE"]{
+section:nth-of-type(2n-1){
     background-color:rgba(0,0,0,0.1);
+    padding-left:5px;
     border-radius:1rem;
 }
 
@@ -67,7 +68,7 @@ img[id="MY_ICON"]:hover{
 
  /*Productions*/
 
-section[id="PRODUCTIONS"]{
+section:nth-of-type(2n){
     color:#fff;
     background-color:#333;
     padding-left:5px;
@@ -78,9 +79,122 @@ section[id="PRODUCTIONS"]{
     color:#fff;
 }
 
+#PRODUCTIONS div{
+    border-radius:1rem;    
+}
+
 #PRODUCTIONS div:hover{
     background-color:#550;
+    border-radius:1rem;
 }
+
+/* Skill */
+section[id="SKILL"]{
+    padding-bottom:1rem;
+    width:100%;
+}
+
+section[id="SKILL"] div[class="Contents"]{
+    display:inline-block;
+    position:relative;
+    left:50%;
+    transform:translate(-50%,0rem);
+}
+
+section[id="SKILL"] span{
+    font-family:sans-serif;
+    display:inline-block;
+    padding:0rem 2rem 1rem 2rem;
+    border:solid 1px #000;
+    border-radius:1rem;
+    margin:0rem 3rem 0rem 3rem;
+}
+
+section[id="SKILL"] span > p{
+    text-align:center;
+    font-weight:bold;
+}
+
+section[id="SKILL"] table{
+    display:inline;
+    padding:0rem 1rem 0rem 1rem;
+}
+
+section[id="SKILL"] td{
+    background-size:1em;
+    background-position:0em 0.3em;
+    background-repeat:no-repeat;
+}
+
+td[id="C++"]{
+    width:10%;
+    background-image:url(./assets/logos/language_cpp.svg);
+}
+
+td[id="C"]{
+    background-image:url(./assets/logos/language_c.svg);
+}
+
+td[id="C#"]{
+    background-image:url(./assets/logos/language_csharp.svg);
+}
+
+td[id="PYTHON"]{
+    background-image:url(./assets/logos/language_python.svg);
+}
+
+td[id="JAVA"]{
+    background-image:url(./assets/logos/language_java.svg);
+}
+
+td[id="HTML"]{
+    width:10%;
+    background-image:url(./assets/logos/language_html.svg);
+}
+
+td[id="CSS"]{
+    background-image:url(./assets/logos/language_css.svg);
+}
+
+td[id="JAVASCRIPT"]{
+    background-image:url(./assets/logos/language_javascript.svg);
+}
+
+td[id="JAVASCRIPT"]{
+    background-image:url(./assets/logos/language_javascript.svg);
+}
+
+td[id="OPENCV"]{
+    width:10%;
+    background-image:url(./assets/logos/library_opencv.svg);
+}
+
+td[id="UNITY"]{
+    width:10%;
+    background-image:url(./assets/logos/framework_unity.svg);
+}
+
+td[id="GOOGLE_COLAB"]{
+    width:10%;
+    background-image:url(./assets/logos/tool_google-colab.svg);
+}
+
+td[id="GIT"]{
+    width:10%;
+    background-image:url(./assets/logos/tool_git.svg);
+}
+
+td[id="STREAMLIT"]{
+    transform:translate(0em,0.3em);
+    background-image:url(./assets/logos/framework_streamlit.svg);
+}
+
+/* Achievements */
+/* section[id="ACHIEVEMENTS"]{
+    
+} */
+
+/* RelatedLinks */
 
 div[class="RelatedLinks"] nav{
     font-size:20px;
@@ -93,9 +207,7 @@ div[class="RelatedLinks"] nav{
     position:relative;
 }
 
-/* RelatedLinks */
-
-.RelatedLinks p{
+.RelatedLinks nav > p{
     text-align:center;
     padding:0px 0px 10px 0px;
     height:5px;
@@ -147,3 +259,5 @@ button[id="LINK_QIITA"]{
 nav button:hover{
     cursor:pointer;
 }
+
+/* アイコン：https://icon-icons.com/ja/ */
