@@ -45,7 +45,7 @@ section[id="PROFILE"] div{
     margin:0em 1em;
     position:relative;
     left:50%;
-    transform:translate(-50%,-25%);
+    transform:translate(-75%,-25%);
 }
 
 img[id="MY_ICON"]{
@@ -53,11 +53,12 @@ img[id="MY_ICON"]{
     height:8em;
     object-fit:cover;
     border-radius:100%;
-    border:dashed 5px #000;
+    border:dashed 0.3rem #000;
     margin:1em;
     position:relative;
-    top:1em;
-    transition:1s;
+    /* bottom:50%;
+    transform:translate(0%,-50%); */
+    transition:all 1s;
 }
 
 img[id="MY_ICON"]:hover{
