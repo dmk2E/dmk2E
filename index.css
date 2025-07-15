@@ -40,13 +40,12 @@ section[id="PROFILE"] h2{
 }
 
 section[id="PROFILE"] div{
-    position:relative;
-    bottom:30px;
-    left:30em;
     display:inline-block;
     padding:0px 0px 5px 0px;
     margin:0em 1em;
-    width:570px;
+    position:relative;
+    left:50%;
+    transform:translate(-50%,-25%);
 }
 
 img[id="MY_ICON"]{
