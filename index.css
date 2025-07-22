@@ -40,13 +40,12 @@ section[id="PROFILE"] h2{
 }
 
 section[id="PROFILE"] div{
-    position:relative;
-    bottom:30px;
-    left:30em;
     display:inline-block;
     padding:0px 0px 5px 0px;
     margin:0em 1em;
-    width:570px;
+    position:relative;
+    left:50%;
+    transform:translate(-75%,-25%);
 }
 
 img[id="MY_ICON"]{
@@ -54,11 +53,12 @@ img[id="MY_ICON"]{
     height:8em;
     object-fit:cover;
     border-radius:100%;
-    border:dashed 5px #000;
+    border:dashed 0.3rem #000;
     margin:1em;
     position:relative;
-    top:1em;
-    transition:1s;
+    /* bottom:50%;
+    transform:translate(0%,-50%); */
+    transition:all 1s;
 }
 
 img[id="MY_ICON"]:hover{
