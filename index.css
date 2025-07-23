@@ -226,26 +226,31 @@ div[class="RelatedLinks"] nav{
     background-color:#aa0;
 } */
 
-.RelatedLinks nav form{
-    display:inline;
+.RelatedLinks div[class="Contents"]{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    align-items:center;
+    align-content:space-around;
 }
 
 .RelatedLinks nav button{
     background-color:rgba(255,255,255,0.7);
     text-align:center;
     font-size:2rem;
-    width:20%;
+    width:20rem;
     border-radius:1em;
     margin:0em 0.5em;
     transition:0.25s;
 }
 
 button[id="LINK_ATCODER"]{
-    background:url(./assets/logos/atcoder_logo_transparent.png) no-repeat 10px 0px/1.1em;
+    background:url(./assets/logos/atcoder_logo_transparent.png) no-repeat 0.25em 0px/1.1em;
 }
 
 button[id="LINK_QIITA"]{
-    background:url(./assets/logos/qiita-icon.png) no-repeat 10px 3px/1.0em;
+    background:url(./assets/logos/qiita-icon.png) no-repeat 0.30em 0.10em/1.0em;
 }
 
 .RelatedLinks nav button:hover{
