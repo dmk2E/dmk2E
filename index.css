@@ -118,6 +118,8 @@ section[id="SKILL"] span > p{
 section[id="SKILL"] table{
     display:inline;
     padding:0rem 1rem 0rem 1rem;
+    font-size:1.11rem;
+    font-family:sans-serif;
 }
 
 section[id="SKILL"] td{
@@ -128,50 +130,46 @@ section[id="SKILL"] td{
 
 td[id="C++"]{
     width:10%;
-    background-image:url(./assets/logos/language_cpp.svg);
+    background-image:url(https://skillicons.dev/icons?i=cpp);
 }
 
 td[id="C"]{
-    background-image:url(./assets/logos/language_c.svg);
+    background-image:url(https://skillicons.dev/icons?i=c);
 }
 
 td[id="C#"]{
-    background-image:url(./assets/logos/language_csharp.svg);
+    background-image:url(https://skillicons.dev/icons?i=cs);
 }
 
 td[id="PYTHON"]{
-    background-image:url(./assets/logos/language_python.svg);
+    background-image:url(https://skillicons.dev/icons?i=py&theme=light);
 }
 
 td[id="JAVA"]{
-    background-image:url(./assets/logos/language_java.svg);
+    background-image:url(https://skillicons.dev/icons?i=java&theme=light);
 }
 
 td[id="HTML"]{
     width:10%;
-    background-image:url(./assets/logos/language_html.svg);
+    background-image:url(https://skillicons.dev/icons?i=html);
 }
 
 td[id="CSS"]{
-    background-image:url(./assets/logos/language_css.svg);
+    background-image:url(https://skillicons.dev/icons?i=css);
 }
 
 td[id="JAVASCRIPT"]{
-    background-image:url(./assets/logos/language_javascript.svg);
-}
-
-td[id="JAVASCRIPT"]{
-    background-image:url(./assets/logos/language_javascript.svg);
+    background-image:url(https://skillicons.dev/icons?i=js);
 }
 
 td[id="OPENCV"]{
     width:10%;
-    background-image:url(./assets/logos/library_opencv.svg);
+    background-image:url(https://skillicons.dev/icons?i=opencv&theme=light);
 }
 
 td[id="UNITY"]{
     width:10%;
-    background-image:url(./assets/logos/framework_unity.svg);
+    background-image:url(https://skillicons.dev/icons?i=unity&theme=light);
 }
 
 td[id="GOOGLE_COLAB"]{
@@ -181,7 +179,7 @@ td[id="GOOGLE_COLAB"]{
 
 td[id="GIT"]{
     width:10%;
-    background-image:url(./assets/logos/tool_git.svg);
+    background-image:url(https://skillicons.dev/icons?i=git);
 }
 
 td[id="STREAMLIT"]{
@@ -240,6 +238,7 @@ div[class="RelatedLinks"] nav{
     text-align:center;
     font-size:2rem;
     width:20rem;
+    border:1px #333 solid;
     border-radius:1em;
     margin:0em 0.5em;
     transition:0.25s;
