@@ -1,27 +1,3 @@
-/*共通項目定義*/
-a{
-    text-decoration:none;
-}
-
-*{
-    transition:background-color 0.5s;
-}
-
-a:hover{
-    font-weight:bold;
-    text-decoration:underline;
-    color:#00f;
-}
-
-li[class="Explanation"]{
-    font-weight:350;
-    font-family:"Helvetica Neue",sans-serif;
-}
-
-h3 + p{
-    font-size:20px;
-}
-
 /*個別項目定義*/
 #TITLE_OF_PROFILE{
     font-size:30px;
@@ -30,6 +6,7 @@ h3 + p{
 
 /*Profiles*/
 section:nth-of-type(2n-1){
+    color:#000;
     background-color:rgba(0,0,0,0.1);
     padding-left:5px;
     border-radius:1rem;
@@ -194,7 +171,7 @@ td[id="STREAMLIT"]{
 
 /* RelatedLinks */
 
-div[class="RelatedLinks"] nav{
+div[class="RelatedLinks"]{
     font-size:20px;
     background-color:#aaa;
     border:5px #000 dashed;
@@ -205,11 +182,9 @@ div[class="RelatedLinks"] nav{
     position:relative;
 }
 
-.RelatedLinks nav > p{
+.RelatedLinks h2{
     text-align:center;
-    padding:0px 0px 10px 0px;
-    height:5px;
-    margin:5px 0px 15px 0px;
+    margin:0px 0px;
 }
 
 /* .RelatedLinks ul{
@@ -240,7 +215,7 @@ div[class="RelatedLinks"] nav{
     width:20rem;
     border:1px #333 solid;
     border-radius:1em;
-    margin:0em 0.5em;
+    margin:0.1em 0.5em;
     transition:0.25s;
 }
 
@@ -264,4 +239,27 @@ nav button:hover{
     cursor:pointer;
 }
 
+/*共通項目定義*/
+a{
+    text-decoration:none;
+}
+
+*{
+    transition:background-color 0.5s ease-in-out;
+}
+
+html a:hover{
+    font-weight:bold;
+    text-decoration:underline;
+    color:#00f;
+}
+
+li[class="Explanation"]{
+    font-weight:350;
+    font-family:"Helvetica Neue",sans-serif;
+}
+
+h3 + p{
+    font-size:20px;
+}
 /* アイコン：https://icon-icons.com/ja/ */
