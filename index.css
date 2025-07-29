@@ -1,27 +1,3 @@
-/*共通項目定義*/
-a{
-    text-decoration:none;
-}
-
-*{
-    transition:background-color 0.5s;
-}
-
-a:hover{
-    font-weight:bold;
-    text-decoration:underline;
-    color:#00f;
-}
-
-li[class="Explanation"]{
-    font-weight:350;
-    font-family:"Helvetica Neue",sans-serif;
-}
-
-h3 + p{
-    font-size:20px;
-}
-
 /*個別項目定義*/
 #TITLE_OF_PROFILE{
     font-size:30px;
@@ -29,23 +5,30 @@ h3 + p{
 }
 
 /*Profiles*/
-section:nth-of-type(2n-1){
-    background-color:rgba(0,0,0,0.1);
-    padding-left:5px;
-    border-radius:1rem;
-}
-
 section[id="PROFILE"] h2{
-    margin-bottom:0px;
+    margin:0px 0px;
 }
 
-section[id="PROFILE"] div{
-    display:inline-block;
-    padding:0px 0px 5px 0px;
-    margin:0em 1em;
+section[id="PROFILE"] div[class="Contents"]{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
     position:relative;
+}
+
+section[id="PROFILE"] div[class="Contents"] div[class="SubContents"]{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-content:center;
+    flex-wrap:wrap;
+}
+
+section[id="PROFILE"] div[class="Contents"] div[class="Texts"]{
+    position:absolute;
     left:50%;
-    transform:translate(-75%,-25%);
+    top:50%;
+    transform:translate(-50%,-50%);    
 }
 
 img[id="MY_ICON"]{
@@ -67,20 +50,16 @@ img[id="MY_ICON"]:hover{
 }
 
  /*Productions*/
-
-section:nth-of-type(2n){
-    color:#fff;
-    background-color:#333;
-    padding-left:5px;
-    border-radius:1rem;
-}
-
 #PRODUCTIONS a{
     color:#fff;
 }
 
 #PRODUCTIONS div{
     border-radius:1rem;    
+}
+
+#PRODUCTIONS ul,li{
+    transform:translate(5px,0px);
 }
 
 #PRODUCTIONS div:hover{
@@ -95,36 +74,56 @@ section[id="SKILL"]{
 }
 
 section[id="SKILL"] div[class="Contents"]{
-    display:inline-block;
-    position:relative;
-    left:50%;
-    transform:translate(-50%,0rem);
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-content:center;
 }
 
 section[id="SKILL"] span{
+    flex:0.3 0.3;
+    max-width:auto;
     font-family:sans-serif;
-    display:inline-block;
     padding:0rem 2rem 1rem 2rem;
     border:solid 1px #000;
     border-radius:1rem;
-    margin:0rem 3rem 0rem 3rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    /* margin:0rem 1rem 0rem 1rem; */
+}
+
+section[id="SKILL"] div[class="SubContents"]{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:flex-start;
+    align-content:center;
 }
 
 section[id="SKILL"] span > p{
-    text-align:center;
+    /* text-align:center; */
     font-weight:bold;
 }
 
-section[id="SKILL"] table{
-    display:inline;
-    padding:0rem 1rem 0rem 1rem;
+section[id="SKILL"] div[class="Contents"] table,ul{
+    /* display:inline-block; */
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:0rem 0.3em 0rem 0.3em;
+    margin:0rem 0.3em 0rem 0.3em;
     font-size:1.11rem;
     font-family:sans-serif;
 }
 
-section[id="SKILL"] td{
+section[id="SKILL"] div[class="Contents"] td,li{
+    width:auto;
+    min-width:20px;
     background-size:1em;
     background-position:0em 0.3em;
+    padding-right:0.5rem;
     background-repeat:no-repeat;
 }
 
@@ -194,7 +193,7 @@ td[id="STREAMLIT"]{
 
 /* RelatedLinks */
 
-div[class="RelatedLinks"] nav{
+div[class="RelatedLinks"]{
     font-size:20px;
     background-color:#aaa;
     border:5px #000 dashed;
@@ -205,11 +204,9 @@ div[class="RelatedLinks"] nav{
     position:relative;
 }
 
-.RelatedLinks nav > p{
+.RelatedLinks h2{
     text-align:center;
-    padding:0px 0px 10px 0px;
-    height:5px;
-    margin:5px 0px 15px 0px;
+    margin:0px 0px;
 }
 
 /* .RelatedLinks ul{
@@ -240,7 +237,7 @@ div[class="RelatedLinks"] nav{
     width:20rem;
     border:1px #333 solid;
     border-radius:1em;
-    margin:0em 0.5em;
+    margin:0.1em 0.5em;
     transition:0.25s;
 }
 
@@ -264,4 +261,89 @@ nav button:hover{
     cursor:pointer;
 }
 
+/*共通項目定義*/
+a{
+    text-decoration:none;
+    color:#0ff !important;
+}
+
+*{
+    transition:background-color 0.5s ease-in-out;
+}
+
+html a:hover{
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+li[class="Explanation"]{
+    font-weight:350;
+    font-family:"Helvetica Neue",sans-serif;
+}
+
+h3 + p{
+    font-size:20px;
+}
+
+section:nth-of-type(2n-1){
+    color:#000;
+    background-color:rgba(0,0,0,0.1);
+    padding-left:5px;
+    border-radius:1rem;
+}
+
+section:nth-of-type(2n){
+    color:#fff;
+    background-color:#333;
+    padding-left:5px;
+    border-radius:1rem;
+}
+
+/* メディアクエリ */
+@media (max-width:1200px){
+    section[id="SKILL"] div[class="Contents"]{
+        flex-direction:column;
+        justify-content:space-around;
+        align-items:center;
+    }
+    
+    section[id="SKILL"] span{
+        width:50%;
+        margin:1em 0em;
+    }
+}
+
+@media (max-width:992px){
+    section[id="SKILL"] div[class="SubContents"]{
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        align-items:flex-start;
+        align-content:center;
+    }
+}
+
+@media (max-width:768px){
+    section[id="PROFILE"] div[class="Contents"]{
+        position:static;
+        display:flex;
+    }
+    
+    section[id="PROFILE"] div[class="Contents"] div[class="SubContents"]{
+        flex-direction:column;
+        justify-content:center;
+        align-content:center;
+        position:static;
+    }
+    
+    section[id="PROFILE"] div[class="Contents"] div[class="Texts"]{
+        align-self:center;
+        position:static;
+        transform:translate(0%,0%);    
+    }
+    
+    img[id="MY_ICON"]{
+        align-self:center;
+    }
+}
 /* アイコン：https://icon-icons.com/ja/ */
