@@ -282,4 +282,18 @@ li[class="Explanation"]{
 h3 + p{
     font-size:20px;
 }
+
+/* メディアクエリ */
+@media (max-width:1200px){
+    section[id="SKILL"] div[class="Contents"]{
+        flex-direction:column;
+        justify-content:space-around;
+        align-items:center;
+    }
+    
+    section[id="SKILL"] span{
+        width:50%;
+        margin:1em 0em;
+    }
+}
 /* アイコン：https://icon-icons.com/ja/ */
