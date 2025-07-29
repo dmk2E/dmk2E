@@ -6,16 +6,29 @@
 
 /*Profiles*/
 section[id="PROFILE"] h2{
-    margin-bottom:0px;
+    margin:0px 0px;
 }
 
-section[id="PROFILE"] div{
-    display:inline-block;
-    padding:0px 0px 5px 0px;
-    margin:0em 1em;
+section[id="PROFILE"] div[class="Contents"]{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
     position:relative;
+}
+
+section[id="PROFILE"] div[class="Contents"] div[class="SubContents"]{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-content:center;
+    flex-wrap:wrap;
+}
+
+section[id="PROFILE"] div[class="Contents"] div[class="Texts"]{
+    position:absolute;
     left:50%;
-    transform:translate(-75%,-25%);
+    top:50%;
+    transform:translate(-50%,-50%);    
 }
 
 img[id="MY_ICON"]{
@@ -308,5 +321,9 @@ section:nth-of-type(2n){
         align-items:flex-start;
         align-content:center;
     }
+}
+
+@media (max-width:768px){
+
 }
 /* アイコン：https://icon-icons.com/ja/ */
