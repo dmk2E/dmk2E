@@ -324,6 +324,26 @@ section:nth-of-type(2n){
 }
 
 @media (max-width:768px){
-
+    section[id="PROFILE"] div[class="Contents"]{
+        position:static;
+        display:flex;
+    }
+    
+    section[id="PROFILE"] div[class="Contents"] div[class="SubContents"]{
+        flex-direction:column;
+        justify-content:center;
+        align-content:center;
+        position:static;
+    }
+    
+    section[id="PROFILE"] div[class="Contents"] div[class="Texts"]{
+        align-self:center;
+        position:static;
+        transform:translate(0%,0%);    
+    }
+    
+    img[id="MY_ICON"]{
+        align-self:center;
+    }
 }
 /* アイコン：https://icon-icons.com/ja/ */
