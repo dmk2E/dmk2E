@@ -264,6 +264,7 @@ nav button:hover{
 /*共通項目定義*/
 a{
     text-decoration:none;
+    color:#0ff !important;
 }
 
 *{
@@ -273,7 +274,6 @@ a{
 html a:hover{
     font-weight:bold;
     text-decoration:underline;
-    color:#00f;
 }
 
 li[class="Explanation"]{
