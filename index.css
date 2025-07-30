@@ -176,6 +176,14 @@ td[id="JAVASCRIPT"]{
     background-image:url(https://skillicons.dev/icons?i=js);
 }
 
+td[id="TYPESCRIPT"]{
+    background-image:url(https://skillicons.dev/icons?i=ts);
+}
+
+td[id="RUBY"]{
+    background-image:url(https://skillicons.dev/icons?i=ruby);
+}
+
 td[id="OPENCV"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=opencv&theme=light);
