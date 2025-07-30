@@ -109,13 +109,14 @@ section[id="SKILL"] span > p{
 
 section[id="SKILL"] div[class="Contents"] table,ul{
     /* display:inline-block; */
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
     padding:0rem 0.3em 0rem 0.3em;
     margin:0rem 0.3em 0rem 0.3em;
     font-size:1.11rem;
     font-family:sans-serif;
+}
+
+section[id="SKILL"] div[class="Contents"] table{
+    display:table;
 }
 
 section[id="SKILL"] div[class="Contents"] td,li{
@@ -173,6 +174,14 @@ td[id="CSS"]{
 
 td[id="JAVASCRIPT"]{
     background-image:url(https://skillicons.dev/icons?i=js);
+}
+
+td[id="TYPESCRIPT"]{
+    background-image:url(https://skillicons.dev/icons?i=ts);
+}
+
+td[id="RUBY"]{
+    background-image:url(https://skillicons.dev/icons?i=ruby);
 }
 
 td[id="OPENCV"]{
