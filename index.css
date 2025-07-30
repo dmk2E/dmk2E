@@ -127,6 +127,20 @@ section[id="SKILL"] div[class="Contents"] td,li{
     background-repeat:no-repeat;
 }
 
+section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(1){
+    width:1.5em;
+}
+
+section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(2){
+    width:3em;
+    text-align:center;
+    flex:0 1;
+}
+
+section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(3){
+    width:6em;
+}
+
 td[id="C++"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=cpp);
@@ -195,6 +209,7 @@ td[id="STREAMLIT"]{
 
 div[class="RelatedLinks"]{
     font-size:20px;
+    color:#000;
     background-color:#aaa;
     border:5px #000 dashed;
     box-sizing:border-box;
@@ -232,6 +247,7 @@ div[class="RelatedLinks"]{
 
 .RelatedLinks nav button{
     background-color:rgba(255,255,255,0.7);
+    color:inherit;
     text-align:center;
     font-size:2rem;
     width:20rem;
