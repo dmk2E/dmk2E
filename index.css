@@ -209,6 +209,7 @@ td[id="STREAMLIT"]{
 
 div[class="RelatedLinks"]{
     font-size:20px;
+    color:#000;
     background-color:#aaa;
     border:5px #000 dashed;
     box-sizing:border-box;
@@ -246,6 +247,7 @@ div[class="RelatedLinks"]{
 
 .RelatedLinks nav button{
     background-color:rgba(255,255,255,0.7);
+    color:inherit;
     text-align:center;
     font-size:2rem;
     width:20rem;
