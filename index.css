@@ -132,7 +132,9 @@ section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(1){
 }
 
 section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(2){
-    width:7em;
+    width:3em;
+    text-align:center;
+    flex:0 1;
 }
 
 section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(3){
