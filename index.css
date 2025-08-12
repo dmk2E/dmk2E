@@ -204,9 +204,9 @@ td[id="GIT"]{
     background-image:url(https://skillicons.dev/icons?i=git);
 }
 
-td[id="STREAMLIT"]{
+td[id="REACT"]{
     transform:translate(0em,0.3em);
-    background-image:url(./assets/logos/framework_streamlit.svg);
+    background-image:url(https://skillicons.dev/icons?i=react);
 }
 
 /* Achievements */
