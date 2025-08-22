@@ -16,7 +16,7 @@ section[id="PROFILE"] div[class="Contents"]{
     position:relative;
 }
 
-section[id="PROFILE"] div[class="Contents"] div[class="SubContents"]{
+section[id="PROFILE"] div[class="Contents"] div[class="SubSubContents"]{
     display:flex;
     flex-direction:row;
     justify-content:flex-start;
@@ -80,7 +80,7 @@ section[id="SKILL"] div[class="Contents"]{
     align-content:center;
 }
 
-section[id="SKILL"] span{
+section[id="SKILL"] div[class="SubContents"]{
     flex:0.3 0.3;
     max-width:auto;
     font-family:sans-serif;
@@ -94,7 +94,7 @@ section[id="SKILL"] span{
     /* margin:0rem 1rem 0rem 1rem; */
 }
 
-section[id="SKILL"] div[class="SubContents"]{
+section[id="SKILL"] div[class="SubSubContents"]{
     display:flex;
     flex-direction:row;
     justify-content:space-between;
@@ -102,7 +102,7 @@ section[id="SKILL"] div[class="SubContents"]{
     align-content:center;
 }
 
-section[id="SKILL"] span > p{
+section[id="SKILL"] div[class="SubContents"] > p{
     /* text-align:center; */
     font-weight:bold;
 }
@@ -163,25 +163,37 @@ td[id="JAVA"]{
     background-image:url(https://skillicons.dev/icons?i=java&theme=light);
 }
 
-td[id="HTML"]{
+td[id="MULTIIMAGES"]{
     width:10%;
-    background-image:url(https://skillicons.dev/icons?i=html);
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
 }
 
-td[id="CSS"]{
-    background-image:url(https://skillicons.dev/icons?i=css);
+td[id="MULTIIMAGES"] img{
+    display:inline-block;
+    width:70%;
+    margin:0px 2px;
+    position:relative;
+    right:0.9rem;
+    top:0.3rem;
+    /* background-image:url(https://skillicons.dev/icons?i=html); */
 }
 
-td[id="JAVASCRIPT"]{
-    background-image:url(https://skillicons.dev/icons?i=js);
+#HTML_AND_CSS{
+    font-size:0.895em;
 }
 
-td[id="TYPESCRIPT"]{
-    background-image:url(https://skillicons.dev/icons?i=ts);
+#JAVASCRIPT_AND_TYPESCRIPT{
+    font-size:1em;
 }
 
 td[id="RUBY"]{
     background-image:url(https://skillicons.dev/icons?i=ruby);
+}
+
+td[id="GO"]{
+    background-image:url(https://skillicons.dev/icons?i=go);
 }
 
 td[id="OPENCV"]{
@@ -241,7 +253,7 @@ div[class="RelatedLinks"]{
     display:inline-block;
 } */
 
-/* .RelatedLinks nav > span:hover{
+/* .RelatedLinks nav > div[class="SubContents"]:hover{
     background-color:#aa0;
 } */
 
@@ -332,14 +344,14 @@ section:nth-of-type(2n){
         align-items:center;
     }
     
-    section[id="SKILL"] span{
+    section[id="SKILL"] div[class="SubContents"]{
         width:50%;
         margin:1em 0em;
     }
 }
 
 @media (max-width:992px){
-    section[id="SKILL"] div[class="SubContents"]{
+    section[id="SKILL"] div[class="SubSubContents"]{
         display:flex;
         flex-direction:column;
         justify-content:space-between;
@@ -354,7 +366,7 @@ section:nth-of-type(2n){
         display:flex;
     }
     
-    section[id="PROFILE"] div[class="Contents"] div[class="SubContents"]{
+    section[id="PROFILE"] div[class="Contents"] div[class="SubSubContents"]{
         flex-direction:column;
         justify-content:center;
         align-content:center;
