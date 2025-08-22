@@ -68,12 +68,14 @@
         <section id="SKILL">
             <h2>&#x1F331;&#65039;Skill</h2>
             <div class="Contents">
-                <span id="LANGUAGE">
+                <div class="SubContents">
                     <p>Language</p>
-                    <div class="SubContents">
+                    <div class="SubSubContents">
                         <table><!--透明文字を入れて列幅を揃える(CSSでの制御より楽)-->
                             <tbody>
-                                <tr><td id="C++"></td><td><font style="opacity:0">Xxx</font>C++<font style="opacity:0">xXX</font></td><td>★★★★☆</td></tr>
+                                <tr>
+                                    <td id="C++"></td>
+                                    <td><font style="opacity:0">XXXx</font><font style="position:relative;left:0.3rem;">C++</font><font style="opacity:0">xXXXX</font></td><td>★★★★☆</td></tr>
                                 <tr><td id="C"></td><td>C</td><td>★★★★☆</td></tr>
                                 <tr><td id="C#"></td><td>C#</td><td>★★★☆☆</td></tr>
                                 <tr><td id="PYTHON"></td><td>Python</td><td>★★★☆☆</td></tr>
@@ -82,18 +84,28 @@
                         </table>
                         <table>
                             <tbody>
-                                <tr><td id="HTML"></td><td>HTML</td><td>★★★☆☆</td></tr>
-                                <tr><td id="CSS"></td><td>CSS</td><td>★★★☆☆</td></tr>
-                                <tr><td id="JAVASCRIPT"></td><td>JavaScript</td><td>★★★☆☆</td></tr>
-                                <!-- <tr><td id="TYPESCRIPT"></td><td>TypeScript</td><td>☆☆☆☆☆</td></tr>
-                                <tr><td id="RUBY"></td><td>Ruby</td><td>☆☆☆☆☆</td></tr> -->
+                                <tr>
+                                    <td id="MULTIIMAGES">
+                                        <img src="https://skillicons.dev/icons?i=html" alt="html icon">
+                                        <img src="https://skillicons.dev/icons?i=css" alt="css icon">
+                                    </td>
+                                    <td id="HTML_AND_CSS">HTML / CSS</td><td>★★★☆☆</td>
+                                </tr>
+                                <tr>
+                                    <td id="MULTIIMAGES">
+                                        <img src="https://skillicons.dev/icons?i=js" alt="javascript icon">
+                                        <img src="https://skillicons.dev/icons?i=ts" alt="typescript icon">
+                                    </td>
+                                    <td id="JAVASCRIPT_AND_TYPESCRIPT">JavaScript(TS)</td><td>★★★☆☆</td></tr>
+                                <tr><td id="RUBY"></td><td>Ruby</td><td>★☆☆☆☆</td></tr>
+                                <!-- <tr><td id="GO"></td><td>Go</td><td>☆☆☆☆☆</td></tr> -->
                             </tbody>
                         </table>
                     </div>
-                </span>
-                <span id="FRAMEWORK">
+                </div>
+                <div class="SubContents">
                     <p>Library/Framework/Tool</p>
-                    <div class="SubContents">
+                    <div class="SubSubContents">
                         <table>
                             <tr><td id="OPENCV"></td><td>OpenCV</td><td>★★★☆☆</td></tr>
                             <tr><td id="UNITY"></td><td>Unity</td><td>★★★☆☆</td></tr>
@@ -102,10 +114,10 @@
                             <tr><td id="GIT"></td><td>Git</td><td>★★★☆☆</td></tr>
                         </table>
                     </div>
-                </span>
-                <span id="QUALIFICATION">
+                </div>
+                <div class="SubContents">
                     <p>Qualification</p>
-                    <div class="SubContents">
+                    <div class="SubSubContents">
                         <!-- <table>
                             <tbody>
                                 <tr><td>基本情報技術者</td></tr>
