@@ -142,6 +142,10 @@ section[id="SKILL"] div[class="Contents"] tr td:nth-of-type(3){
     width:6em;
 }
 
+#Language2{
+    display:none;
+}
+
 td[id="C++"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=cpp);
@@ -351,12 +355,17 @@ section:nth-of-type(2n){
 }
 
 @media (max-width:992px){
-    section[id="SKILL"] div[class="SubSubContents"]{
-        display:flex;
+    #Language1{
+        display:none;
+        /* display:flex;
         flex-direction:column;
         justify-content:space-between;
         align-items:flex-start;
-        align-content:center;
+        align-content:center; */
+    }
+
+    #Language2{
+        display:flex;
     }
 }
 
@@ -399,6 +408,10 @@ section:nth-of-type(2n){
         position:relative;
         right:0.2rem;
         top:0.3rem;
+    }
+
+    #JAVASCRIPT_AND_TYPESCRIPT{
+        font-size:0.85rem;
     }
 }
 /* アイコン：https://icon-icons.com/ja/ */
