@@ -241,9 +241,19 @@ td[id="RAILS"]{
 }
 
 /* Achievements */
-/* section[id="ACHIEVEMENTS"]{
-    
-} */
+section[id="ACHIEVEMENTS"]{
+    padding:0rem 0rem 1rem 0rem;
+    margin:2rem 0rem;
+}
+
+section[id="ACHIEVEMENTS"] nav{
+    display:inline;
+}
+
+#ACHIEVEMENTS ul,li{
+    transform:translate(5px,0px);
+}
+
 
 /* RelatedLinks */
 
