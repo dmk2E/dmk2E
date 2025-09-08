@@ -356,7 +356,7 @@ section:nth-of-type(2n){
 }
 
 /* メディアクエリ */
-@media (max-width:1200px){
+@media (max-width:1350px){
     section[id="SKILL"] div[class="Contents"]{
         flex-direction:column;
         justify-content:space-around;
