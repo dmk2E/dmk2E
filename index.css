@@ -212,7 +212,7 @@ td[id="UNITY"]{
 
 td[id="GOOGLE_COLAB"]{
     width:10%;
-    background-image:url(./assets/logos/tool_google-colab.svg);
+    background-image:url(./assets/logos/tool_google_colab.svg);
 }
 
 td[id="GIT"]{
@@ -312,7 +312,11 @@ button[id="LINK_ATCODER"]{
 }
 
 button[id="LINK_QIITA"]{
-    background:url(./assets/logos/qiita-icon.png) no-repeat 0.30em 0.10em/1.0em;
+    background:url(./assets/logos/qiita_icon.png) no-repeat 0.30em 0.10em/1.0em;
+}
+
+button[id="LINK_ZENN"]{
+    background:url(./assets/logos/zenn_logo.svg) no-repeat 0.30em 0.10em/1.0em;
 }
 
 .RelatedLinks nav button:hover{
