@@ -235,6 +235,11 @@ td[id="EXPRESS"]{
     background-image:url(https://skillicons.dev/icons?i=express);
 }
 
+td[id="MONGO_DB"]{
+    transform:translate(0em,0.3em);
+    background-image:url(https://skillicons.dev/icons?i=mongodb);
+}
+
 td[id="RAILS"]{
     transform:translate(0em,0.3em);
     background-image:url(https://skillicons.dev/icons?i=rails);
