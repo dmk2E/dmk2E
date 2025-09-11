@@ -47,6 +47,7 @@ img[id="MY_ICON"]{
 img[id="MY_ICON"]:hover{
     border:solid 5px #000;
     transform:scale(1.05);
+    cursor:pointer;
 }
 
  /*Productions*/
