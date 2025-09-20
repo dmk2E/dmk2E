@@ -47,6 +47,7 @@ img[id="MY_ICON"]{
 img[id="MY_ICON"]:hover{
     border:solid 5px #000;
     transform:scale(1.05);
+    cursor:pointer;
 }
 
  /*Productions*/
@@ -413,11 +414,14 @@ section:nth-of-type(2n){
 }
 
 @media (max-width:768px){
-    section[id="PROFILE"] div[class="Contents"]{
-        position:static;
+    section[id="PROFILE"] div[class="SubContents"]{
         display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+        align-items:center;
+        align-content:space-between;
     }
-    
+
     section[id="PROFILE"] div[class="Contents"] div[class="SubSubContents"]{
         flex-direction:column;
         justify-content:center;
