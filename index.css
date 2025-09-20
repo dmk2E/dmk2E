@@ -419,7 +419,7 @@ section:nth-of-type(2n){
         flex-direction:column;
         justify-content:flex-start;
         align-items:center;
-        align-content:space-between;   
+        align-content:space-between;
     }
 
     section[id="PROFILE"] div[class="Contents"] div[class="SubSubContents"]{
