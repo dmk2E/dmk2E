@@ -29,6 +29,15 @@ myIcon.addEventListener(
     }
 );
 
+myIcon.addEventListener(
+    "mousedown", 
+    (evt) =>{
+        evt.stopPropagation();
+        evt.preventDefault();
+        if(evt.button === 1)window.open(GITHUB_PAGE);
+    }
+);
+
 getJson(EXPLANATION_URL,EXPLANATION_CONFIG)
     .then(data =>{
         console.log(data);
