@@ -13,7 +13,7 @@
         "librariesAndFrameworks":{
             "opencv":"OpenCV：\n画像処理の研究で使用しているライブラリ。基本的な処理はできます。",
             "googleColab":"GoogleColab：\n研究開発で用いているツールです。",
-            "unity":"Unity：研究開発用の2Dゲーム開発に使用しているエンジンです。",
+            "unity":"Unity：\n研究開発用の2Dゲーム開発に使用しているエンジンです。",
             "react":"",
             "rails":"",
             "nodeJs":"",
