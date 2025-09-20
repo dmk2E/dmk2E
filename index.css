@@ -414,11 +414,14 @@ section:nth-of-type(2n){
 }
 
 @media (max-width:768px){
-    section[id="PROFILE"] div[class="Contents"]{
-        position:static;
+    section[id="PROFILE"] div[class="SubContents"]{
         display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+        align-items:center;
+        align-content:space-between;   
     }
-    
+
     section[id="PROFILE"] div[class="Contents"] div[class="SubSubContents"]{
         flex-direction:column;
         justify-content:center;
