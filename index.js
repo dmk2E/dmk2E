@@ -14,7 +14,7 @@ async function getJson(url,config){
         const json = await data.json();
         return json;
     }catch(err){
-        throw new Error("Data installation is failured!");
+        throw new Error("Data installation is failed!");
     }
 }
 
