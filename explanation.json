@@ -7,7 +7,7 @@
             "py":"Python\n研究開発，競プロで使用。主に研究のため，ほぼ毎日触っています。",
             "java":"Java\n大学の授業で触れた程度です。",
             "htmlCss":"HTML/CSS\nWeb開発で定期的に触れています。",
-            "jsTs":"JavaScript/Typescript\n簡単なAPI呼び出しやReactで使用。定期的に触れています。",
+            "jsTs":"JavaScript/TypeScript\n簡単なAPI呼び出しやReactで使用。定期的に触れています。",
             "rb":"Ruby\nRailsを用いた開発で使用。"
         },
         "librariesAndFrameworks":{
