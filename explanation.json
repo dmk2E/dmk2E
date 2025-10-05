@@ -3,23 +3,23 @@
         "language":{
             "cpp":"C++：\n趣味の競プロでのメイン言語。毎日のルーティーンで競プロを1時間やっていて、ほぼ毎朝触れています。ドキュメントなしである程度の業務が可能です。",
             "c":"C:\nC++に移行する前の、競プロでのメイン言語。今はほとんど触れていませんが、普段使っているC++と似ている構文が多く、ある程度の業務が可能です。",
-            "cs":"",
-            "py":"",
-            "java":"",
-            "htmlCss":"",
-            "jsCs":"",
-            "rb":""
+            "cs":"C#\nUnityを用いたゲーム開発で使用。",
+            "py":"Python\n研究開発，競プロで使用。主に研究のため，ほぼ毎日触っています。",
+            "java":"Java\n大学の授業で触れた程度です。",
+            "htmlCss":"HTML/CSS\nWeb開発で定期的に触れています。",
+            "jsTs":"JavaScript/Typescript\n簡単なAPI呼び出しやReactで使用。定期的に触れています。",
+            "rb":"Ruby\nRailsを用いた開発で使用。"
         },
         "librariesAndFrameworks":{
             "opencv":"OpenCV：\n画像処理の研究で使用しているライブラリ。基本的な処理はできます。",
             "googleColab":"GoogleColab：\n研究開発で用いているツールです。",
             "unity":"Unity：\n研究開発用の2Dゲーム開発に使用しているエンジンです。",
-            "react":"",
-            "rails":"",
-            "nodeJs":"",
-            "express":"",
-            "mongoDb":"",
-            "git":""
+            "react":"React：\nフロントエンド側の開発に使用（インターンでの開発経験あり）。",
+            "rails":"Rails：\nバックエンド側の開発に使用（インターンでの開発経験あり）。",
+            "nodeJs":"Node.js：\nバックエンド側の開発に使用しています。",
+            "express":"Express：\nバックエンド側のサーバー開発に使用しています。",
+            "mongoDb":"MongoDB：\nNoSQLデータベースとして使用しています。",
+            "git":"Git：\nVCS (Version Control System)として，個人開発・チーム開発時に使用しています。"
         }
     }
 }
