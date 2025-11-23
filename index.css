@@ -194,14 +194,14 @@ td[id="JAVA_MQ"]{
     background-image:url(https://skillicons.dev/icons?i=java&theme=light);
 }
 
-td[id="MULTIIMAGES"]{
+td[class="MULTIIMAGES"]{
     width:10%;
     display:flex;
     flex-direction:row;
     flex-wrap:nowrap;
 }
 
-td[id="MULTIIMAGES"] img{
+td[class="MULTIIMAGES"] img{
     display:inline-block;
     width:70%;
     margin:0px 2px;
@@ -572,14 +572,14 @@ section:nth-of-type(2n){
 }
 
 @media (max-width:512px){
-    td[id="MULTIIMAGES"]{
+    td[class="MULTIIMAGES"]{
         width:10%;
         display:flex;
         flex-direction:column;
         flex-wrap:nowrap;
     }
 
-    td[id="MULTIIMAGES"] img{
+    td[class="MULTIIMAGES"] img{
         display:inline-block;
         width:70%;
         margin:0px 2px;
