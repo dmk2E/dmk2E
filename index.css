@@ -79,11 +79,13 @@ section[id="SKILL"] div[class="Contents"]{
     flex-direction:row;
     justify-content:space-around;
     align-content:center;
+    flex-wrap:wrap;
+    align-content:space-evenly;
 }
 
 section[id="SKILL"] div[class="SubContents"]{
-    flex:0.3 0.3;
-    max-width:auto;
+    flex:1 1 20%;
+    max-width:50%;
     font-family:sans-serif;
     padding:0rem 2rem 1rem 2rem;
     border:solid 1px #000;
@@ -92,13 +94,13 @@ section[id="SKILL"] div[class="SubContents"]{
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
-    /* margin:0rem 1rem 0rem 1rem; */
+    margin:1rem 3rem;
 }
 
 section[id="SKILL"] div[class="SubSubContents"]{
     display:flex;
     flex-direction:row;
-    justify-content:space-between;
+    /* justify-content:space-between; */
     align-items:flex-start;
     align-content:center;
 }
@@ -197,7 +199,19 @@ td[id="GO"]{
     background-image:url(https://skillicons.dev/icons?i=go);
 }
 
-#LFT2{
+#FRAMEWORK_MQ{
+    display:none;
+}
+
+#DATABASE_MQ{
+    display:none;
+}
+
+#DEVOPS_MQ{
+    display:none;
+}
+
+#LIBRARY_PLATFORM_MQ{
     display:none;
 }
 
@@ -219,6 +233,16 @@ td[id="GOOGLE_COLAB"]{
 td[id="GIT"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=git);
+}
+
+td[id="DOCKER"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=docker);
+}
+
+td[id="BASH"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=bash);
 }
 
 td[id="REACT"]{
@@ -404,11 +428,35 @@ section:nth-of-type(2n){
         display:flex;
     }
 
-    #LFT1{
+    #FRAMEWORK{
         display:none;
     }
 
-    #LFT2{
+    #FRAMEWORK_MQ{
+        display:flex;
+    }
+
+    #DATABASE{
+        display:none;
+    }
+
+    #DATABASE_MQ{
+        display:flex;
+    }
+
+    #DEVOPS{
+        display:none;
+    }
+
+    #DEVOPS_MQ{
+        display:flex;
+    }
+
+    #LIBRARY_PLATFORM{
+        display:none;
+    }
+
+    #LIBRARY_PLATFORM_MQ{
         display:flex;
     }
 }
