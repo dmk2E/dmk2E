@@ -597,9 +597,9 @@ section:nth-of-type(2n){
     }
 }
 
-@media (max-width:370px){
+@media (max-width:450px){
     section[id="SKILL"] div[class="SubContents"]{
-        padding:0rem 3rem 1rem 3rem;
+        padding:0rem 3.5rem 1rem 3.5rem;
     }
 }
 /* アイコン：https://icon-icons.com/ja/ */
