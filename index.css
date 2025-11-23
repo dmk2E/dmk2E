@@ -157,7 +157,16 @@ td[id="C++"]{
     background-image:url(https://skillicons.dev/icons?i=cpp);
 }
 
+td[id="C++_MQ"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=cpp);
+}
+
 td[id="C"]{
+    background-image:url(https://skillicons.dev/icons?i=c);
+}
+
+td[id="C_MQ"]{
     background-image:url(https://skillicons.dev/icons?i=c);
 }
 
@@ -165,11 +174,23 @@ td[id="C#"]{
     background-image:url(https://skillicons.dev/icons?i=cs);
 }
 
+td[id="C#_MQ"]{
+    background-image:url(https://skillicons.dev/icons?i=cs);
+}
+
 td[id="PYTHON"]{
     background-image:url(https://skillicons.dev/icons?i=py&theme=light);
 }
 
+td[id="PYTHON_MQ"]{
+    background-image:url(https://skillicons.dev/icons?i=py&theme=light);
+}
+
 td[id="JAVA"]{
+    background-image:url(https://skillicons.dev/icons?i=java&theme=light);
+}
+
+td[id="JAVA_MQ"]{
     background-image:url(https://skillicons.dev/icons?i=java&theme=light);
 }
 
@@ -194,7 +215,15 @@ td[id="RUBY"]{
     background-image:url(https://skillicons.dev/icons?i=ruby);
 }
 
+td[id="RUBY_MQ"]{
+    background-image:url(https://skillicons.dev/icons?i=ruby);
+}
+
 td[id="GO"]{
+    background-image:url(https://skillicons.dev/icons?i=go);
+}
+
+td[id="GO_MQ"]{
     background-image:url(https://skillicons.dev/icons?i=go);
 }
 
@@ -219,7 +248,17 @@ td[id="OPENCV"]{
     background-image:url(https://skillicons.dev/icons?i=opencv&theme=light);
 }
 
+td[id="OPENCV_MQ"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=opencv&theme=light);
+}
+
 td[id="UNITY"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=unity&theme=light);
+}
+
+td[id="UNITY_MQ"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=unity&theme=light);
 }
@@ -229,7 +268,17 @@ td[id="GOOGLE_COLAB"]{
     background-image:url(./assets/logos/tool_google_colab.svg);
 }
 
+td[id="GOOGLE_COLAB_MQ"]{
+    width:10%;
+    background-image:url(./assets/logos/tool_google_colab.svg);
+}
+
 td[id="GIT"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=git);
+}
+
+td[id="GIT_MQ"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=git);
 }
@@ -239,7 +288,17 @@ td[id="DOCKER"]{
     background-image:url(https://skillicons.dev/icons?i=docker);
 }
 
+td[id="DOCKER_MQ"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=docker);
+}
+
 td[id="BASH"]{
+    width:10%;
+    background-image:url(https://skillicons.dev/icons?i=bash);
+}
+
+td[id="BASH_MQ"]{
     width:10%;
     background-image:url(https://skillicons.dev/icons?i=bash);
 }
@@ -249,7 +308,17 @@ td[id="REACT"]{
     background-image:url(https://skillicons.dev/icons?i=react);
 }
 
+td[id="REACT_MQ"]{
+    transform:translate(0em,0.3em);
+    background-image:url(https://skillicons.dev/icons?i=react);
+}
+
 td[id="NODEJS"]{
+    transform:translate(0em,0.3em);
+    background-image:url(https://skillicons.dev/icons?i=nodejs);
+}
+
+td[id="NODEJS_MQ"]{
     transform:translate(0em,0.3em);
     background-image:url(https://skillicons.dev/icons?i=nodejs);
 }
@@ -259,12 +328,27 @@ td[id="EXPRESS"]{
     background-image:url(https://skillicons.dev/icons?i=express);
 }
 
+td[id="EXPRESS_MQ"]{
+    transform:translate(0em,0.3em);
+    background-image:url(https://skillicons.dev/icons?i=express);
+}
+
 td[id="MONGO_DB"]{
     transform:translate(0em,0.3em);
     background-image:url(https://skillicons.dev/icons?i=mongodb);
 }
 
+td[id="MONGO_DB_MQ"]{
+    transform:translate(0em,0.3em);
+    background-image:url(https://skillicons.dev/icons?i=mongodb);
+}
+
 td[id="RAILS"]{
+    transform:translate(0em,0.3em);
+    background-image:url(https://skillicons.dev/icons?i=rails);
+}
+
+td[id="RAILS_MQ"]{
     transform:translate(0em,0.3em);
     background-image:url(https://skillicons.dev/icons?i=rails);
 }
