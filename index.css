@@ -78,7 +78,6 @@ section[id="SKILL"] div[class="Contents"]{
     display:flex;
     flex-direction:row;
     justify-content:space-around;
-    align-content:center;
     flex-wrap:wrap;
     align-content:space-evenly;
 }
@@ -293,7 +292,6 @@ div[class="RelatedLinks"]{
     background-color:#aaa;
     border:5px #000 dashed;
     box-sizing:border-box;
-    /* padding:0px 5px 5px 5px; */
     border-radius:1rem;
     margin-left:0px;
     position:relative;
