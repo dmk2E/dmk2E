@@ -420,6 +420,11 @@ div[class="RelatedLinks"]{
     transition:0.25s;
 }
 
+.RelatedLinks form{
+    display:flex;
+    justify-content:center;
+}
+
 button[id="LINK_ATCODER"]{
     background:url(./assets/logos/atcoder_logo_transparent.png) no-repeat 0.25em 0px/1.1em;
 }
@@ -568,6 +573,10 @@ section:nth-of-type(2n){
     
     img[id="MY_ICON"]{
         align-self:center;
+    }
+
+    .RelatedLinks div[class="Contents"]{
+        justify-content:center;
     }
 }
 
