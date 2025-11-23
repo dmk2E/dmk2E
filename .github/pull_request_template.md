@@ -43,3 +43,6 @@
 </details> 
 
 ## Remarks
+<!-- These are sample checklists for PRs -->
+* [ ] Did you get any review from Copilot?
+* [ ] All requested reviews are resolved?
