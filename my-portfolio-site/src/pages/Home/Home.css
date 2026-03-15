@@ -1,0 +1,6 @@
+#home_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
