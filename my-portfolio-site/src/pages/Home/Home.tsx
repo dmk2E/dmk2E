@@ -1,11 +1,11 @@
-// import myIcon from "/my_icon.png";
-import "./Home.css"
+import myIcon from "@/assets/my_icon.svg";
+import "./Home.css";
+import Profile from "@/components/Profile/Profile";
 
 export default function Home() {
-
   return (
     <div id="home_page">
-      テスト
+      <Profile iconImage={myIcon}/>
     </div>
   )
 }
