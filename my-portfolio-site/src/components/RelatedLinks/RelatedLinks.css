@@ -1,0 +1,29 @@
+.related-links{
+  color: inherit;
+  background-color: #C7C7C7;
+  width: 80vw;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  align-items:center;
+  align-content:space-around;
+}
+
+.related-links legend{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.related-links legend .caption{
+  --outline: #7c3aed;
+
+  text-shadow: 
+    -1px -1px 0 var(--outline), 
+    1px -1px 0 var(--outline), 
+    -1px 1px 0 var(--outline), 
+    1px 1px 0 var(--outline);
+}

@@ -1,0 +1,30 @@
+.profile{
+  width: 80vw;
+  color: #000;
+  background-color: #E9E9E9;
+  margin: 0.5rem 0;
+  border-radius: 1.5rem;
+  /* フレックスボックス */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile legend{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.profile .caption{
+  --outline: #3b82f6;
+
+  /* 文字の枠線 */
+  text-shadow: 
+    -1px -1px 0 var(--outline), 
+    1px -1px 0 var(--outline), 
+    -1px 1px 0 var(--outline), 
+    1px 1px 0 var(--outline);
+}

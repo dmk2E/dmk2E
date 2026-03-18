@@ -1,0 +1,36 @@
+.topics{
+  color: inherit;
+  background-color: #fff;
+  width: 80vw;
+  border-radius: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.topics legend{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.topics .caption{
+  --outline: #059669;
+  
+  /* 文字の枠線 */
+  text-shadow:
+    -1px -1px 0 var(--outline), 
+    1px -1px 0 var(--outline), 
+    -1px 1px 0 var(--outline), 
+    1px 1px 0 var(--outline);
+}
+
+.topics .content{
+  text-align: left;
+}
+
+.topics a{
+  text-decoration: none;
+}
+
+.topics a:hover{
+  text-decoration: underline;
+}

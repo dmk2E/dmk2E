@@ -1,0 +1,9 @@
+#navbar {
+  color: #fff;
+  background-color: #A1F1FF;
+}
+
+#navbar a{
+  color: inherit;
+  text-decoration: none;
+}
