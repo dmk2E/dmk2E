@@ -65,7 +65,7 @@ export default function Profile( props: ProfileProps ){
         margin: "0 1rem 1rem 1rem"
       }}
       >
-        {isLoading ? "読み込み中" : documentToReactComponents(
+        {isLoading || profileData.length == 0 ? "読み込み中" : documentToReactComponents(
           /* richTextDocument = */ profileData[0].fields.introduction, 
           /* options = */ richTextOptions
         )}

@@ -3,8 +3,7 @@ import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
 
 type DefaultProps = {
   id?: string, 
-  className?: string, 
-  key?: string
+  className?: string
 };
 
 // TopicLabel 用

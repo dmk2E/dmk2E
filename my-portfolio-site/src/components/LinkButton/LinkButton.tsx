@@ -11,8 +11,14 @@ type LinkButtonProps = DefaultProps & {
 
 export default function LinkButton( props: LinkButtonProps ){
   return (
-    <form action={props.href} className={clsx("link-button", props.className)}>
-        <button type="submit" style={props.buttonStyle}>{props.sentence}</button>
-    </form>
+    <a 
+    href={props.href} 
+    style={props.buttonStyle} 
+    className={clsx("link-button", props.className)} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    >
+      {props.sentence}
+    </a>
   );
 }

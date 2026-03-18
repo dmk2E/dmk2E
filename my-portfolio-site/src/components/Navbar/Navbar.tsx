@@ -17,7 +17,7 @@ import type { DefaultProps } from "@/util";
 
 type NavbarProps = DefaultProps & {
   position?: "fixed" | "sticky" | "static", 
-  maxWidth?: "xl" | "xs" | "false"
+  maxWidth?: "xl" | "xs" | false
 };
 
 type PagesInfo = {
@@ -101,7 +101,8 @@ export default function Navbar( props: NavbarProps ){
                 <MenuItem 
                 key={page.name} 
                 component={Link} 
-                to={page.path}
+                to={page.path} 
+                onClick={unsetAnchor}
                 >
                   {page.name}
                 </MenuItem>

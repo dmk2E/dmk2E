@@ -44,33 +44,35 @@ export default function Topics( props: TopicsProps ){
       >
         {isLoading ? "読み込み中..." : 
           <table>
-            {topics.map(topic => (
-              <tr key={topic.sys.id}>
-                <td>・</td>
-                <td>
-                  {/* ContentfulのDate型から日時情報のみを抽出 */}
-                  {topic.fields.date.split(/* separator = */"T")[0]
-                                    .replace(
-                                      /* pattern = */ /-/g, 
-                                      /* replacement = */ "."
-                                    )
-                  }
-                </td>
-                <td>
-                  <TopicLabel type={topic.fields.label}/>
-                </td>
-                <td className="content">
-                  {documentToReactComponents(
-                    /* richTextDocument = */ topic.fields.content, 
-                    /* options = */ {
-                      renderNode: {
-                        [BLOCKS.PARAGRAPH]: (_, children) => <span>{children}</span>
-                      }
+            <tbody>
+              {topics.map(topic => (
+                <tr key={topic.sys.id}>
+                  <td>・</td>
+                  <td>
+                    {/* ContentfulのDate型から日時情報のみを抽出 */}
+                    {topic.fields.date.split(/* separator = */"T")[0]
+                                      .replace(
+                                        /* pattern = */ /-/g, 
+                                        /* replacement = */ "."
+                                      )
                     }
-                  )}
-                </td>
-              </tr>
-            ))}
+                  </td>
+                  <td>
+                    <TopicLabel type={topic.fields.label}/>
+                  </td>
+                  <td className="content">
+                    {documentToReactComponents(
+                      /* richTextDocument = */ topic.fields.content, 
+                      /* options = */ {
+                        renderNode: {
+                          [BLOCKS.PARAGRAPH]: (_, children) => <span>{children}</span>
+                        }
+                      }
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         }
       </SimpleBar>

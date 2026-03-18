@@ -5,7 +5,7 @@ import "./index.css"
 import App from "./App.tsx"
 
 // React用の描画エンジン
-ReactDOM.createRoot(/* container = */document.getElementById('root')!).render(/* childeren = */ 
+ReactDOM.createRoot(/* container = */document.getElementById('root')!).render(/* children = */ 
   <React.StrictMode>
     <BrowserRouter>
       <App />
