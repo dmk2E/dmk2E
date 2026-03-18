@@ -14,12 +14,15 @@ type RelatedLinksProps = DefaultProps & {
 export default function RelatedLinks( props: RelatedLinksProps ){
   return (
     <nav>
-      <fieldset className={clsx("related-links", props.className)}>
+      <fieldset 
+      className={clsx("related-links", props.className)}
+      style={props.style}
+      >
         <legend>&#x1F310;&#65039;<span className="caption">Related Links</span></legend>
         <LinkButton 
         href="https://atcoder.jp/users/Kou0406" 
         sentence="AtCoder" 
-        buttonStyle={{
+        style={{
           // 画像URLが、データURLとして解釈された際、
           // 無効な文字が入っても対応できるように "${imagePath}" と記述
 
@@ -33,7 +36,7 @@ export default function RelatedLinks( props: RelatedLinksProps ){
         <LinkButton 
         href="https://qiita.com/dmk2E" 
         sentence="Qiita" 
-        buttonStyle={{
+        style={{
           // background: `url("${qiitaLogo}") no-repeat 0.30em 0.10em/1.0em #ffffffb3`
           // FIXME: なぜか上記の記述と，位置や大きさの基準が異なる模様
           backgroundImage: `url(${qiitaLogo})`, 
@@ -44,7 +47,7 @@ export default function RelatedLinks( props: RelatedLinksProps ){
         <LinkButton 
         href="https://zenn.dev/dmk2e" 
         sentence="Zenn" 
-        buttonStyle={{
+        style={{
           backgroundImage: `url("${zennLogo}")`, 
           backgroundRepeat: "no-repeat",
           backgroundPosition: "0.30em 0.2em",

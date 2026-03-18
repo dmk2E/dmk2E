@@ -50,7 +50,10 @@ export default function Profile( props: ProfileProps ){
     })();
   }, []);
   return (
-    <fieldset className={clsx("profile", props.className)}>
+    <fieldset 
+    className={clsx("profile", props.className)} 
+    style={props.style}
+    >
       <legend>&#129489;&#8205;&#128187;&#65039;<span className="caption">Profile</span></legend>
       <Avatar 
       src={props.iconImage} 

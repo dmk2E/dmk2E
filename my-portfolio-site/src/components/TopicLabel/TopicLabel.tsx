@@ -22,7 +22,7 @@ export default function TopicLabel( props: TopicLabelProps ){
   return (
     <span 
     className={clsx("topic-label", props.className)} 
-    style={{backgroundColor: typeToColor[type]}}
+    style={{...props.style, backgroundColor: typeToColor[type]}}
     >
       {type}
     </span>

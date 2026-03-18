@@ -1,9 +1,11 @@
 import { createClient } from "contentful";
 import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
+import React from "react";
 
 type DefaultProps = {
   id?: string, 
-  className?: string
+  className?: string, 
+  style?: React.CSSProperties
 };
 
 // TopicLabel 用

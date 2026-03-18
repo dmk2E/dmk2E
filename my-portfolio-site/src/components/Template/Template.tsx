@@ -8,7 +8,10 @@ type TemplateProps = DefaultProps & {
 
 export default function Template( props: TemplateProps ){
   return (
-    <div className={clsx("template", props.className)}>
+    <div 
+    className={clsx("template", props.className)} 
+    style={props.style}
+    >
 
     </div>
   );
