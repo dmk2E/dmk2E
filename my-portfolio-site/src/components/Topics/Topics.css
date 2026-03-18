@@ -26,3 +26,11 @@
 .topics .content{
   text-align: left;
 }
+
+.topics a{
+  text-decoration: none;
+}
+
+.topics a:hover{
+  text-decoration: underline;
+}

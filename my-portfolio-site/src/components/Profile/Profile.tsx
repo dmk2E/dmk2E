@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { 
   Avatar, 
-  Box
+  Box, 
+  Link
 } from "@mui/material";
 // Contentful関係
 import { client } from "@/util";
@@ -53,11 +54,19 @@ export default function Profile( props: ProfileProps ){
       <legend>&#129489;&#8205;&#128187;&#65039;<span className="caption">Profile</span></legend>
       <Avatar 
       src={props.iconImage} 
+      component={Link}
+      href="https://github.com/dmk2E" 
+      target="_blank" 
+      rel="noopener noreferrer"
       sx={{ 
         width: "8em", 
         height: "8em", 
         margin: "1rem 2rem 1rem 2rem", 
-        border: "2px dashed #000"
+        border: "2px dashed #000", 
+        transition: "all 0.5s ease-in-out", 
+        "&:hover": {
+          transform: "scale(1.1)"
+        }
       }} 
       />
       <Box 

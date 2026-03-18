@@ -27,8 +27,8 @@ export default function RelatedLinks( props: RelatedLinksProps ){
           // FIXME: なぜか上記の記述と，位置や大きさの基準が異なる模様
           backgroundImage: `url(${atcoderLogo})`, 
           backgroundRepeat: "no-repeat", 
-          backgroundPosition: "0.3em 0.01em", 
-          backgroundSize: "1.0em"
+          backgroundPosition: "0.3em 0.05em", 
+          backgroundSize: "1.3em"
         }}/>
         <LinkButton 
         href="https://qiita.com/dmk2E" 
@@ -38,7 +38,7 @@ export default function RelatedLinks( props: RelatedLinksProps ){
           // FIXME: なぜか上記の記述と，位置や大きさの基準が異なる模様
           backgroundImage: `url(${qiitaLogo})`, 
           backgroundRepeat: "no-repeat", 
-          backgroundPosition: "0.3em 0.1em", 
+          backgroundPosition: "0.3em 0.2em", 
           backgroundSize: "1.0em"
         }}/>
         <LinkButton 
@@ -47,7 +47,7 @@ export default function RelatedLinks( props: RelatedLinksProps ){
         buttonStyle={{
           backgroundImage: `url("${zennLogo}")`, 
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "0.30em 0.10em",
+          backgroundPosition: "0.30em 0.2em",
           backgroundSize: "1.0em"
         }}/>
       </fieldset>
