@@ -1,0 +1,30 @@
+import "./TopicLabel.css";
+import type { DefaultProps } from "@/util";
+import clsx from "clsx";
+import { isTopicType } from "@/util";
+import type { TopicType } from "@/util";
+
+type TopicLabelProps = DefaultProps & {
+  type: string
+};
+
+const typeToColor: Record<TopicType | "OTHER", string> = {
+  NEWS: "#b4e2ff", 
+  EVENT: "#ffd1b4", 
+  ARTICLE: "#bdffb4", 
+  PROJECT: "#eab4ff", 
+  OTHER: "#aaa"
+};
+
+export default function TopicLabel( props: TopicLabelProps ){
+  const type: TopicType | "OTHER" = isTopicType(props.type) ? props.type : "OTHER";
+
+  return (
+    <span 
+    className={clsx("topic-label", props.className)} 
+    style={{backgroundColor: typeToColor[type]}}
+    >
+      {type}
+    </span>
+  );
+}

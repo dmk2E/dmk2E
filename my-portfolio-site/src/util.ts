@@ -1,11 +1,18 @@
 import { createClient } from "contentful";
-import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
+import type { Entry, EntryFieldTypes, EntrySkeletonType } from "contentful";
 
 type DefaultProps = {
   id?: string, 
   className?: string, 
   key?: string
 };
+
+// TopicLabel 用
+type TopicType = "NEWS" | "EVENT" | "ARTICLE" | "PROJECT";
+
+function isTopicType(value: string): value is TopicType{
+  return ["NEWS", "EVENT", "ARTICLE", "PROJECT"].includes(value);
+}
 
 // Contentful関係
 const SPACE_ID = import.meta.env.VITE_CONTENTFUL_SPACE_ID;
@@ -30,5 +37,18 @@ interface ProfileSkeleton extends EntrySkeletonType{
   fields: Profile;
 }
 
-export { client };
-export type { DefaultProps, ProfileSkeleton };
+//  Topics欄
+interface TopicItem{
+  title: EntryFieldTypes.Symbol;
+  date: EntryFieldTypes.Date;
+  label: EntryFieldTypes.Symbol;
+  content: EntryFieldTypes.RichText;
+}
+
+interface TopicItemSkeleton extends EntrySkeletonType{
+  contentTypeId: "topicItem";
+  fields: TopicItem;
+}
+
+export { client, isTopicType };
+export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton };
