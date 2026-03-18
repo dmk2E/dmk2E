@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import type { Entry, EntryFieldTypes, EntrySkeletonType } from "contentful";
+import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
 
 type DefaultProps = {
   id?: string, 
