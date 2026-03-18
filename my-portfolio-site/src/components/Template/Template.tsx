@@ -1,4 +1,4 @@
-import "Template.css";
+import "./Template.css";
 import type { DefaultProps } from "@/util";
 import clsx from "clsx";
 
