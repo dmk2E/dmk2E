@@ -10,7 +10,7 @@ import type { Entry } from "contentful";
 import { client } from "@/util";
 import type { TopicItemSkeleton } from "@/util";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 type TopicsProps = DefaultProps & {
 
@@ -65,7 +65,15 @@ export default function Topics( props: TopicsProps ){
                       /* richTextDocument = */ topic.fields.content, 
                       /* options = */ {
                         renderNode: {
-                          [BLOCKS.PARAGRAPH]: (_, children) => <span>{children}</span>
+                          [BLOCKS.PARAGRAPH]: (_, children) => <span>{children}</span>, 
+                          [INLINES.HYPERLINK]: (node, children) => (
+                          <a 
+                          href={node.data.uri}
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          >
+                            {children}
+                          </a>)
                         }
                       }
                     )}

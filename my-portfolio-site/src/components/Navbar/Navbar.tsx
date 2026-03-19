@@ -27,7 +27,7 @@ type PagesInfo = {
 
 const pages: Array<PagesInfo> = [
   { name: "HOME", path: "/" }, 
-  { name: "WORKS", path: "#" }, 
+  { name: "WORKS", path: "/works" }, 
   { name: "SKILL", path: "#" }, 
   { name: "AWARDS", path: "#" }
 ];
