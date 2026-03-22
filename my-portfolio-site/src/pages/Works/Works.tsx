@@ -13,6 +13,7 @@ export default function Works( props: WorksProps ){
     style={props.style}
     >
       {/* TODO: Figmaでデザインしてから実装を行う */}
+      🛠🤝
     </div>
   );
 }

@@ -17,10 +17,9 @@ type TopicsProps = DefaultProps & {
 };
 
 export default function Topics( props: TopicsProps ){
+  // Contentful からデータ抽出
   const [topics, setTopics] = useState<Array<Entry<TopicItemSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
-  
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   useEffect(() =>{
     (async function(){
       try{
@@ -36,11 +35,12 @@ export default function Topics( props: TopicsProps ){
       }
     })();
   }, []);
+
   return (
     <fieldset className={clsx("topics", props.className)}>
-      <legend>&#10024;<span className="caption">Topic</span></legend>
+      <legend>✨<span className="caption">Topic</span></legend>
       <SimpleBar 
-      style={{maxHeight: "30vh"}} 
+      style={{maxHeight: "30vh", width: "100%"}}
       >
         {isLoading ? "読み込み中..." : 
           <table>
