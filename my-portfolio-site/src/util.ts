@@ -8,6 +8,21 @@ type DefaultProps = {
   style?: React.CSSProperties
 };
 
+/**
+ * ISO 8601 形式の日時情報を数値に変換
+ * "2025-05-15T00:00:00Z" => 20250515
+ * @param date ISO8601の日時文字列（"YYYY-MM-DDThh:mm:ss"）
+ * @returns YYMMDD という形の数値
+ */
+function parseDateToNumber(date: string){
+  const normalizedDate: string = date.split(/* separator = */ "T")[0]
+                                     .replace(
+                                       /* pattern = */ /-/g, 
+                                       /* replacement = */ ""
+                                     );
+  return parseInt(normalizedDate);
+}
+
 // TopicLabel 用
 type TopicType = "NEWS" | "EVENT" | "ARTICLE" | "PROJECT";
 
@@ -65,5 +80,5 @@ interface ProductionSkeleton extends EntrySkeletonType{
   fields: Production;
 }
 
-export { client, isTopicType };
+export { client, isTopicType, parseDateToNumber };
 export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton };
