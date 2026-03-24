@@ -38,7 +38,7 @@ interface ProfileSkeleton extends EntrySkeletonType{
   fields: Profile;
 }
 
-//  Topics欄
+//   Topics欄
 interface TopicItem{
   title: EntryFieldTypes.Symbol;
   date: EntryFieldTypes.Date;
@@ -51,5 +51,19 @@ interface TopicItemSkeleton extends EntrySkeletonType{
   fields: TopicItem;
 }
 
+//  WORKS ページ
+interface Production{
+  title: EntryFieldTypes.Symbol;
+  link: EntryFieldTypes.Symbol;
+  explanation: EntryFieldTypes.RichText;
+  isTeamDevelopment: EntryFieldTypes.Boolean;
+  date: EntryFieldTypes.Date;
+}
+
+interface ProductionSkeleton extends EntrySkeletonType{
+  contentTypeId: "production";
+  fields: Production;
+}
+
 export { client, isTopicType };
-export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton };
+export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton };

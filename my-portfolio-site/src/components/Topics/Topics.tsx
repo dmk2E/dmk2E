@@ -21,7 +21,7 @@ export default function Topics( props: TopicsProps ){
   const [topics, setTopics] = useState<Array<Entry<TopicItemSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() =>{
-    (async function(){
+    (async function getContentfulData(){
       try{
         const res = await client.getEntries<TopicItemSkeleton>(/* query = */ {
           content_type: "topicItem", 

@@ -36,7 +36,7 @@ export default function Profile( props: ProfileProps ){
   const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
 
   useEffect(() =>{
-    (async function (){
+    (async function getContentfulData(){
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {
           content_type: "profile", 
