@@ -9,10 +9,10 @@ type DefaultProps = {
 };
 
 /**
- * ISO 8601 形式の日時情報を数値に変換
+ * ISO 8601 形式の日時情報を10進数の数値に変換
  * "2025-05-15T00:00:00Z" => 20250515
  * @param date ISO8601の日時文字列（"YYYY-MM-DDThh:mm:ss"）
- * @returns YYMMDD という形の数値
+ * @returns YYYYMMDD という形の数値
  */
 function parseDateToNumber(date: string){
   const normalizedDate: string = date.split(/* separator = */ "T")[0]
@@ -20,7 +20,7 @@ function parseDateToNumber(date: string){
                                        /* pattern = */ /-/g, 
                                        /* replacement = */ ""
                                      );
-  return parseInt(normalizedDate);
+  return Number.parseInt(/* string = */ normalizedDate, /* radix = */ 10);
 }
 
 // TopicLabel 用

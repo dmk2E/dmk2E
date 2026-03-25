@@ -11,36 +11,32 @@ type WorksProps = DefaultProps & {
 };
 
 export default function Works( props: WorksProps ){
-  let productions: Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = [];
   const [myOwnProducts, setMyOwnProducts] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   const [otherProjects, setOtherProjects] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
 
   useEffect(() =>{
-    try{
       (async function getContentfulData(){
-        const res = await client.getEntries<ProductionSkeleton>(/* query = */ {
-          content_type: "production", 
-          // 作成日の降順で取得
-          order: ["-fields.date"]
-        });
-        productions = res.items;
-        console.log(productions);
-        setMyOwnProducts(productions.filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
-                                    // 作成日の昇順に
-                                    .sort(/* compareFn = */ (productA, productB) => {
-                                      const numA = parseDateToNumber(productA.fields.date);
-                                      const numB = parseDateToNumber(productB.fields.date);
-                                      return numA - numB;
-                                    }));
-        setOtherProjects(productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
+        try{
+          const res = await client.getEntries<ProductionSkeleton>(/* query = */ {
+            content_type: "production", 
+            // 作成日の降順で取得
+            order: ["-fields.date"]
+          });
+          const productions: Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = res.items;
+          setMyOwnProducts(productions.filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
+                                      // 作成日の昇順に
+                                      .sort(/* compareFn = */ (productA, productB) => {
+                                        const numA = parseDateToNumber(productA.fields.date);
+                                        const numB = parseDateToNumber(productB.fields.date);
+                                        return numA - numB;
+                                      }));
+          setOtherProjects(productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
+        }catch(err){
+          console.error("Fetching Contentful data error!");
+        }
       })();
-    }catch(err){
-      console.error("Fetching Contentful datas error!");
-    }
   }, []);
-  if(myOwnProducts.length === 0)return <p>読み込み中...</p>
-  console.log(myOwnProducts);
-  console.log(otherProjects);
+  if(myOwnProducts.length === 0 && otherProjects.length === 0)return <p>読み込み中...</p>
   return (
     <div 
     id="works_page"

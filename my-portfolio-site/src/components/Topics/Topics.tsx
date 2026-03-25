@@ -29,7 +29,7 @@ export default function Topics( props: TopicsProps ){
         });
         setTopics(/* value = */ res.items);
       }catch(err){
-        console.error("Fetching Contentful datas error!");
+        console.error("Fetching Contentful data error!");
       }finally{
         setIsLoading(false);
       }

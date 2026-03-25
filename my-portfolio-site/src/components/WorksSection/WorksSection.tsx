@@ -6,7 +6,7 @@ import React from "react";
 import type { ProductionSkeleton } from "@/util";
 import type { Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 
 type WorksSectionProps = DefaultProps & {
@@ -38,12 +38,17 @@ export default function WorksSection( props: WorksSectionProps ){
           <li 
           key={work.sys.id} 
           >
-            <a href={work.fields.link}>{work.fields.title}</a>
+            <a 
+            href={work.fields.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            >{work.fields.title}</a>
             {documentToReactComponents(
               /* richTextDocument = */ work.fields.explanation, 
               /* options = */ {
                 renderNode: {
-                  [BLOCKS.PARAGRAPH]: (_, children) => <ul><li>{children}</li></ul>
+                  [BLOCKS.PARAGRAPH]: (_, children) => <ul><li>{children}</li></ul>, 
+                  [INLINES.HYPERLINK]: (node, children) => <a href={node.data.uri} target="_blank" rel="noopener noreferrer">{children}</a>
                 }
               }
             )}
