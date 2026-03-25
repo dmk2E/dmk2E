@@ -18,7 +18,7 @@ export default function RelatedLinks( props: RelatedLinksProps ){
       className={clsx("related-links", props.className)}
       style={props.style}
       >
-        <legend>&#x1F310;&#65039;<span className="caption">Related Links</span></legend>
+        <legend>🌐<span className="caption">Related Links</span></legend>
         <LinkButton 
         href="https://atcoder.jp/users/Kou0406" 
         sentence="AtCoder" 

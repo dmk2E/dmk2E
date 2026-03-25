@@ -26,10 +26,10 @@ type PagesInfo = {
 };
 
 const pages: Array<PagesInfo> = [
-  { name: "HOME", path: "/" }, 
-  { name: "WORKS", path: "#" }, 
-  { name: "SKILL", path: "#" }, 
-  { name: "AWARDS", path: "#" }
+  { name: "🏡HOME", path: "/" }, 
+  { name: "🔧WORKS", path: "/works" }, 
+  { name: "🌱SKILL", path: "#" }, 
+  { name: "🏆AWARDS", path: "#" }
 ];
 
 export default function Navbar( props: NavbarProps ){
@@ -117,7 +117,7 @@ export default function Navbar( props: NavbarProps ){
               fontWeight: "bold"
             }}
             >
-              &#128187;&#65039;dmk2E's Portfolio Site
+              💻dmk2E's Portfolio Site
             </Typography>
           </Box>
           
@@ -139,7 +139,7 @@ export default function Navbar( props: NavbarProps ){
               display: "flex", 
             }}
             >
-              &#128187;&#65039;dmk2E's Portfolio Site
+              💻dmk2E's Portfolio Site
             </Typography>
             <Box 
             sx={{

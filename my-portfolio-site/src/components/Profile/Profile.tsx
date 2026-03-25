@@ -36,14 +36,14 @@ export default function Profile( props: ProfileProps ){
   const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
 
   useEffect(() =>{
-    (async function (){
+    (async function getContentfulData(){
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {
           content_type: "profile", 
         });
         setProfileData(/* value = */ res.items);
       }catch(err){
-        console.error("Fetching Contentful datas Error!");
+        console.error("Fetching Contentful data Error!");
       }finally{
         setIsLoading(/* value = */ false);
       }
@@ -54,7 +54,7 @@ export default function Profile( props: ProfileProps ){
     className={clsx("profile", props.className)} 
     style={props.style}
     >
-      <legend>&#129489;&#8205;&#128187;&#65039;<span className="caption">Profile</span></legend>
+      <legend>🧑‍💻<span className="caption">Profile</span></legend>
       <Avatar 
       src={props.iconImage} 
       component={Link}
@@ -77,7 +77,7 @@ export default function Profile( props: ProfileProps ){
         margin: "0 1rem 1rem 1rem"
       }}
       >
-        {isLoading || profileData.length == 0 ? "読み込み中" : documentToReactComponents(
+        {isLoading || profileData.length === 0 ? "読み込み中" : documentToReactComponents(
           /* richTextDocument = */ profileData[0].fields.introduction, 
           /* options = */ richTextOptions
         )}
