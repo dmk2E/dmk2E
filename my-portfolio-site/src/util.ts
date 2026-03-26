@@ -23,6 +23,20 @@ function parseDateToNumber(date: string){
   return Number.parseInt(/* string = */ normalizedDate, /* radix = */ 10);
 }
 
+/**
+ * URLが安全かどうか判定する（XSS対策・セキュアな通信かどうか）
+ * @param url 判定対象のURL
+ * @returns URLが安全ならtrue
+ */
+function isSafeURL(url: string): boolean{
+  try{
+    const parsedURL = new URL(/* url = */ url, /* base = */ window.location.origin);
+    return ["https:", "mailto"].includes(parsedURL.protocol);
+  }catch{
+    return false;
+  }
+}
+
 // TopicLabel 用
 type TopicType = "NEWS" | "EVENT" | "ARTICLE" | "PROJECT";
 
@@ -80,5 +94,5 @@ interface ProductionSkeleton extends EntrySkeletonType{
   fields: Production;
 }
 
-export { client, isTopicType, parseDateToNumber };
+export { client, isTopicType, parseDateToNumber, isSafeURL };
 export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton };

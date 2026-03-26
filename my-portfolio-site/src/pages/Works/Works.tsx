@@ -26,8 +26,8 @@ export default function Works( props: WorksProps ){
           setMyOwnProducts(productions.filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
                                       // 作成日の昇順に
                                       .sort(/* compareFn = */ (productA, productB) => {
-                                        const numA = parseDateToNumber(productA.fields.date);
-                                        const numB = parseDateToNumber(productB.fields.date);
+                                        const numA = parseDateToNumber(/* date = */ productA.fields.date);
+                                        const numB = parseDateToNumber(/* date = */ productB.fields.date);
                                         return numA - numB;
                                       }));
           setOtherProjects(productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
