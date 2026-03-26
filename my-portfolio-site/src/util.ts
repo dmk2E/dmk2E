@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
+import type { Entry, EntryFieldTypes, EntrySkeletonType } from "contentful";
 import React from "react";
 
 type DefaultProps = {
@@ -94,5 +94,27 @@ interface ProductionSkeleton extends EntrySkeletonType{
   fields: Production;
 }
 
+//  SKILL ページ
+interface Skill{
+  name: EntryFieldTypes.Symbol;
+  level: EntryFieldTypes.Integer;
+  category: EntryFieldTypes.Symbol;
+}
+
+interface SkillSkeleton extends EntrySkeletonType{
+  contentTypeId: "skill";
+  fields: Skill;
+}
+
+interface Qualification{
+  name: EntryFieldTypes.Symbol;
+  date: EntryFieldTypes.Date;
+}
+
+interface QualificationSkeleton extends EntrySkeletonType{
+  contentTypeId: "qualification";
+  fields: Qualification;
+}
+
 export { client, isTopicType, parseDateToNumber, isSafeURL };
-export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton };
+export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton };

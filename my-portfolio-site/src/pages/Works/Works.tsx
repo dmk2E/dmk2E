@@ -14,7 +14,7 @@ export default function Works( props: WorksProps ){
   const [myOwnProducts, setMyOwnProducts] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   const [otherProjects, setOtherProjects] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
 
-  useEffect(() =>{
+  useEffect(/* effect =  */ () =>{
       (async function getContentfulData(){
         try{
           const res = await client.getEntries<ProductionSkeleton>(/* query = */ {
@@ -35,7 +35,7 @@ export default function Works( props: WorksProps ){
           console.error("Fetching Contentful data error!");
         }
       })();
-  }, []);
+  }, /* deps = */ []);
   if(myOwnProducts.length === 0 && otherProjects.length === 0)return <p>読み込み中...</p>
   return (
     <div 

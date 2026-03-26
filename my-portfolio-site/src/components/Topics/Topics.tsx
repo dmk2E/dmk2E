@@ -20,7 +20,7 @@ export default function Topics( props: TopicsProps ){
   // Contentful からデータ抽出
   const [topics, setTopics] = useState<Array<Entry<TopicItemSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  useEffect(() =>{
+  useEffect(/* effect =  */ () =>{
     (async function getContentfulData(){
       try{
         const res = await client.getEntries<TopicItemSkeleton>(/* query = */ {
@@ -34,7 +34,7 @@ export default function Topics( props: TopicsProps ){
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, /* deps = */ []);
 
   return (
     <fieldset className={clsx("topics", props.className)}>

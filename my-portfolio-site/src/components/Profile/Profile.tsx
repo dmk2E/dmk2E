@@ -42,7 +42,7 @@ export default function Profile( props: ProfileProps ){
 
   const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
 
-  useEffect(() =>{
+  useEffect(/* effect =  */ () =>{
     (async function getContentfulData(){
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {
@@ -55,7 +55,7 @@ export default function Profile( props: ProfileProps ){
         setIsLoading(/* value = */ false);
       }
     })();
-  }, []);
+  }, /* deps = */ []);
   return (
     <fieldset 
     className={clsx("profile", props.className)} 
