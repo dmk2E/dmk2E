@@ -1,8 +1,10 @@
 import "./Skill.css";
 import type { DefaultProps } from "@/util";
 import { useState, useEffect } from "react";
-import SkillSection from "@/components/SkillSection/SkillSection";
 import { extractByCategory } from "./Skill.utils";
+// 自作コンポーネント
+import SkillSection from "@/components/SkillSection/SkillSection";
+import QualificationSection from "@/components/QualificationSection/QualificationSection";
 // アイコン関係
 import languageIcon from "@/assets/file-code.svg";
 import libPlatformIcon from "@/assets/stack.svg";
@@ -48,7 +50,7 @@ export default function Skill( props: SkillProps ){
   }, /* deps = */ []);
 
   //  Qualification カテゴリー
-  const [qualificationItems, setQualificationItems] = useState<Array<Entry<QualificationSkeleton>>>(/* initialState = */ []);
+  const [qualificationItems, setQualificationItems] = useState<Array<Entry<QualificationSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   useEffect(/* effect =  */ () =>{
     (async function getContentfulData(){
       try{
@@ -118,11 +120,22 @@ export default function Skill( props: SkillProps ){
       <img 
       src={devOpsToolIcon} 
       style={{transform: "scale(1.3)"}} 
-      alt="diagram-3 icon"
+      alt="tool icon"
       />} 
       sectionName="DevOPS / Tool" 
       sectionNameColor="#d1d5db"
       skills={devOpsToolSkillItems}
+      />
+      <QualificationSection 
+      icon={
+      <img 
+      src={qualificationIcon} 
+      style={{transform: "scale(1.3)"}} 
+      alt="award icon"
+      />} 
+      sectionName="Qualification" 
+      sectionNameColor="#fff9c4"
+      items={qualificationItems}
       />
     </div>
   );
