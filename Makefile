@@ -26,9 +26,7 @@ run:
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && npm run dev
 
 reset-github-token: 
-	# GitHub Token を一度リセット
-	@unset GITHUB_TOKEN
-
-	# GitHub CLI を使って再度ログイン
-	@gh auth login
-	@gh auth setup-git
+	# GitHub Token を一度リセットし，GitHub CLI を使って再度ログイン
+	@unset GITHUB_TOKEN && \
+	gh auth login && \
+	gh auth setup-git

@@ -84,7 +84,7 @@ const skillToMetadata: Record<MySkills | "other", SkillMetadata> = {
   // database
   mysql: {
     displayName: "MySQL",
-    icon: <img className="icon" src="https://skillicons.dev/icons?i=mysql" alt="mysql" />
+    icon: <img className="icon" src="https://skillicons.dev/icons?i=mysql&theme=light" alt="mysql" />
   },
   mongodb: {
     displayName: "MongoDB",
@@ -102,7 +102,7 @@ const skillToMetadata: Record<MySkills | "other", SkillMetadata> = {
   },
   express: {
     displayName: "Express",
-    icon: <img className="icon" src="https://skillicons.dev/icons?i=express&theme=light" alt="express" />
+    icon: <img className="icon" src="https://skillicons.dev/icons?i=express" alt="express" />
   },
   rails: {
     displayName: "Rails",

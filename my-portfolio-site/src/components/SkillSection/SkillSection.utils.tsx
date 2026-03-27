@@ -11,7 +11,11 @@ const MAX_LEVEL = 5;
  * @returns ★と☆で構成される文字列
  */
 function lvlStr(level: number): string{
-  return "★".repeat(/* count = */ level) + "☆".repeat(/* count = */ MAX_LEVEL - level);
+  // 正規化：level が数値でない場合は0とみなし，整数化してから，[0, MAX_LEVEL] にクランプする
+  const safeLevelNumber = Number.isFinite(/* number = */ level) ? level : 0;
+  const intLevel = Math.floor(safeLevelNumber);
+  const normalizedLevel = Math.min(Math.max(0, intLevel), MAX_LEVEL);
+  return "★".repeat(/* count = */ normalizedLevel) + "☆".repeat(/* count = */ MAX_LEVEL - normalizedLevel);
 }
 
 /**

@@ -40,10 +40,10 @@ export default function SkillSection( props: SkillSectionProps ){
         height: "13rem", 
         display: {
           xs: "none", 
-          md: "flex"
+          sm: "flex"
         }, 
         flexDirection: "row", 
-        justifyContent: "space-evenly", 
+        justifyContent: "center", 
         alignItems: "flex-start"
       }}
       >
@@ -56,8 +56,9 @@ export default function SkillSection( props: SkillSectionProps ){
       sx={{
         display: {
           xs: "flex", 
-          md: "none"
+          sm: "none"
         }, 
+        height: "auto", 
         flexDirection: "column", 
         justifyContent: "flex-start", 
         alignItems: "center"

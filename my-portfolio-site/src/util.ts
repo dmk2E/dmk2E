@@ -33,13 +33,14 @@ function parseDateToNumber(date: string){
 
 /**
  * URLが安全かどうか判定する（XSS対策・セキュアな通信かどうか）
+ * 現在は，`https:` 及び `mailto:` スキームのみ許可する
  * @param url 判定対象のURL
  * @returns URLが安全ならtrue
  */
 function isSafeURL(url: string): boolean{
   try{
     const parsedURL = new URL(/* url = */ url, /* base = */ window.location.origin);
-    return ["https:", "mailto"].includes(parsedURL.protocol);
+    return ["https:", "mailto:"].includes(parsedURL.protocol);
   }catch{
     return false;
   }

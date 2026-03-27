@@ -1,6 +1,5 @@
 #skill_page{
   color: inherit;
-  width: 95vw;
   padding: 0.5rem 0;
   display: flex;
   flex-direction: row;
@@ -30,7 +29,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
   }
 }
 
