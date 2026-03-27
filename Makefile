@@ -1,4 +1,4 @@
-.PHONY: update install setup run
+.PHONY: update install setup run reset-github-token
 
 MAKEFILE_DIR := $(abspath $(lastword ${MAKEFILE_LIST})/..)
 
@@ -24,3 +24,11 @@ setup: install
 run: 
 	# フロントエンド側サーバの構築
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && npm run dev
+
+reset-github-token: 
+	# GitHub Token を一度リセット
+	@unset GITHUB_TOKEN
+
+	# GitHub CLI を使って再度ログイン
+	@gh auth login
+	@gh auth setup-git
