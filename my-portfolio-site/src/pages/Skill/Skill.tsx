@@ -1,40 +1,23 @@
 import "./Skill.css";
 import type { DefaultProps } from "@/util";
 import { useState, useEffect } from "react";
-import type { ReactNode } from "react";
+import SkillSection from "@/components/SkillSection/SkillSection";
+import { extractByCategory } from "./Skill.utils";
+// アイコン関係
+import languageIcon from "@/assets/file-code.svg";
+import libPlatformIcon from "@/assets/stack.svg";
+import databaseIcon from "@/assets/database-fill.svg";
+import frameworkIcon from "@/assets/diagram-3.svg";
+import devOpsToolIcon from "@/assets/tools.svg";
+import qualificationIcon from "@/assets/award.svg";
 // Contentful関係
 import type { Entry } from "contentful";
 import { client } from "@/util";
-import type { SkillSkeleton, QualificationSkeleton } from "@/util";
+import type { SkillInfo, SkillSkeleton, QualificationSkeleton } from "@/util";
 
 type SkillProps = DefaultProps & {
 
 };
-
-type SkillInfo = {
-  id: string, 
-  name: string, 
-  iconElement: ReactNode, 
-  level: number
-};
-
-/**
- * Contentful から取得した "Skill" のデータをカテゴリごとに分類する
- * @param skills "skill" の Content Type ID を持つ Contentful のデータの配列
- * @param category カテゴリ名（"language" | "lib-platform" | "database" | "framework" | "devops-tool"）
- * @returns SkillInfo 型の配列
- */
-function extractByCategory(skills: Array<Entry<SkillSkeleton, "WITHOUT_LINK_RESOLUTION", string>>, category: string): Array<SkillInfo>{
-  const filteredSkills = skills.filter(skill => skill.fields.category === category);
-  return filteredSkills.map(skill => {
-    return {
-      id: skill.sys.id, 
-      name: skill.fields.name, 
-      iconElement: <img />, 
-      level: skill.fields.level
-    };
-  });
-}
 
 export default function Skill( props: SkillProps ){
   // カテゴリごとに，各技術スタックの情報を保持
@@ -44,13 +27,12 @@ export default function Skill( props: SkillProps ){
   const [dbSkillItems, setDbSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
   const [frameworkSkillItems, setFrameworkSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
   const [devOpsToolSkillItems, setDevOpsToolSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
-
   useEffect(/* effect =  */ () =>{
     (async function getContentfulData(){
       try{
         const res = await client.getEntries<SkillSkeleton>(/* query = */ {
           content_type: "skill", 
-          order: ["-sys.createdAt"]
+          order: ["sys.createdAt"]
         });
         // 取得したContentfulデータをカテゴリごとに分類
         const skillInfo: Array<Entry<SkillSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = res.items;
@@ -64,6 +46,7 @@ export default function Skill( props: SkillProps ){
       }
     })();
   }, /* deps = */ []);
+
   //  Qualification カテゴリー
   const [qualificationItems, setQualificationItems] = useState<Array<Entry<QualificationSkeleton>>>(/* initialState = */ []);
   useEffect(/* effect =  */ () =>{
@@ -71,7 +54,7 @@ export default function Skill( props: SkillProps ){
       try{
         const res = await client.getEntries<QualificationSkeleton>(/* query = */ {
           content_type: "qualification", 
-          order: ["-fields.date"]
+          order: ["fields.date"]
         });
         setQualificationItems(res.items);
       }catch(err){
@@ -79,18 +62,68 @@ export default function Skill( props: SkillProps ){
       }
     })();
   }, /* deps = */ []);
-  console.log(langSkillItems);
-  console.log(libPlatformSkillItems);
-  console.log(dbSkillItems);
-  console.log(frameworkSkillItems);
-  console.log(devOpsToolSkillItems);
-  console.log(qualificationItems);
+  
   return (
     <div 
     id="skill_page" 
     className={props.className} 
     style={props.style}
     >
+      <SkillSection 
+      icon={
+      <img 
+      src={languageIcon} 
+      style={{transform: "scale(1.3)"}} 
+      alt="file code icon"
+      />} 
+      sectionName="Language" 
+      sectionNameColor="#b3e5fc"
+      skills={langSkillItems}
+      />
+      <SkillSection 
+      icon={
+      <img 
+      src={libPlatformIcon} 
+      style={{transform: "scale(1.3)"}} 
+      alt="stack icon"
+      />} 
+      sectionName="Library / Platform" 
+      sectionNameColor="#c8e6c9"
+      skills={libPlatformSkillItems}
+      />
+      <SkillSection 
+      icon={
+      <img 
+      src={databaseIcon} 
+      style={{transform: "scale(1.3)"}} 
+      alt="database icon"
+      />} 
+      sectionName="Database" 
+      sectionNameColor="#ffe0b2"
+      skills={dbSkillItems}
+      />
+      <SkillSection 
+      icon={
+      <img 
+      src={frameworkIcon} 
+      style={{transform: "scale(1.3)"}} 
+      alt="diagram-3 icon"
+      />} 
+      sectionName="Framework" 
+      sectionNameColor="#e1bee7"
+      skills={frameworkSkillItems}
+      />
+      <SkillSection 
+      icon={
+      <img 
+      src={devOpsToolIcon} 
+      style={{transform: "scale(1.3)"}} 
+      alt="diagram-3 icon"
+      />} 
+      sectionName="DevOPS / Tool" 
+      sectionNameColor="#d1d5db"
+      skills={devOpsToolSkillItems}
+      />
     </div>
   );
 }

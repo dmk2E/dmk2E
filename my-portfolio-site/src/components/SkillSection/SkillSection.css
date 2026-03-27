@@ -1,0 +1,35 @@
+.skill-section{
+  color: #000;
+  background-color: #e9e9e9;
+  min-width: 0;
+  width: 40%;
+  border-radius: 1.5rem;
+  margin: 0 0.5rem;
+}
+
+.skill-section .caption{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0.2rem;
+
+  --outline: #000;
+
+  text-shadow: 
+    -1px -1px 0 var(--outline), 
+    1px -1px 0 var(--outline), 
+    -1px 1px 0 var(--outline), 
+    1px 1px 0 var(--outline);
+}
+
+@media (max-width: 1200px){
+  .skill-section{
+    font-size: 0.75rem;
+  } 
+}
+
+@media (max-width: 900px){
+  .skill-section{
+    font-size: 1.0rem;
+    width: 80%;
+  }
+}

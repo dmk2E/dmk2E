@@ -1,6 +1,7 @@
 import { createClient } from "contentful";
-import type { Entry, EntryFieldTypes, EntrySkeletonType } from "contentful";
+import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
 import React from "react";
+import type { ReactNode } from "react";
 
 type DefaultProps = {
   id?: string, 
@@ -8,9 +9,16 @@ type DefaultProps = {
   style?: React.CSSProperties
 };
 
+type SkillInfo = {
+  id: string, 
+  name: string, 
+  iconElement: ReactNode, 
+  level: number
+};
+
 /**
  * ISO 8601 形式の日時情報を10進数の数値に変換
- * "2025-05-15T00:00:00Z" => 20250515
+ * 実例："2025-05-15T00:00:00Z" => `20250515`
  * @param date ISO8601の日時文字列（"YYYY-MM-DDThh:mm:ss"）
  * @returns YYYYMMDD という形の数値
  */
@@ -117,4 +125,4 @@ interface QualificationSkeleton extends EntrySkeletonType{
 }
 
 export { client, isTopicType, parseDateToNumber, isSafeURL };
-export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton };
+export type { DefaultProps, SkillInfo, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton };
