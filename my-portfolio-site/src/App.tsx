@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 // 各ページ
 import Home from "@/pages/Home/Home";
 import Works from "@/pages/Works/Works";
+import Skill from "@/pages/Skill/Skill";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/works" element={<Works />}/>
+        <Route path="/skill" element={<Skill />}/>
       </Routes>
     </>
   );
 }
 
-export default App
+export default App;

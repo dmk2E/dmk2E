@@ -8,11 +8,11 @@ import {
   Link
 } from "@mui/material";
 // Contentful関係
-import { client } from "@/util";
+import { client, isSafeURL } from "@/util";
 import type { ProfileSkeleton } from "@/util";
 import type { Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type { Options } from "@contentful/rich-text-react-renderer";
 
 type ProfileProps = DefaultProps & {
@@ -22,6 +22,13 @@ type ProfileProps = DefaultProps & {
 const richTextOptions: Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_, children) => <span>{ children }</span>, 
+    [INLINES.HYPERLINK]: (node, children) => isSafeURL(node.data.uri) ? 
+                                                      <a 
+                                                      href={node.data.uri} 
+                                                      target="_blank" 
+                                                      rel="noopener noreferrer"
+                                                      >{children}</a> : 
+                                                      <span>{children}</span>
   }, 
   renderText: (text: string) => {
     return text.split(/* separator = */ "。").flatMap((sentence, index, arr) => (
@@ -35,7 +42,7 @@ export default function Profile( props: ProfileProps ){
 
   const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
 
-  useEffect(() =>{
+  useEffect(/* effect =  */ () =>{
     (async function getContentfulData(){
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {
@@ -48,7 +55,7 @@ export default function Profile( props: ProfileProps ){
         setIsLoading(/* value = */ false);
       }
     })();
-  }, []);
+  }, /* deps = */ []);
   return (
     <fieldset 
     className={clsx("profile", props.className)} 

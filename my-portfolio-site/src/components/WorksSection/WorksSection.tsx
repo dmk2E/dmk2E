@@ -1,9 +1,9 @@
 import "./WorksSection.css";
-import type { DefaultProps } from "@/util";
+import { isSafeURL } from "@/util";
+import type { DefaultProps, ProductionSkeleton } from "@/util";
 import clsx from "clsx";
 import React from "react";
 // Contentful関係
-import type { ProductionSkeleton } from "@/util";
 import type { Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
@@ -38,17 +38,24 @@ export default function WorksSection( props: WorksSectionProps ){
           <li 
           key={work.sys.id} 
           >
-            <a 
-            href={work.fields.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            >{work.fields.title}</a>
+            {
+              isSafeURL(/* url = */ work.fields.link) ? 
+                            <a 
+                            href={work.fields.link} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            >
+                              {work.fields.title}</a> : 
+                            <span>{work.fields.title}</span>
+            }
             {documentToReactComponents(
               /* richTextDocument = */ work.fields.explanation, 
               /* options = */ {
                 renderNode: {
                   [BLOCKS.PARAGRAPH]: (_, children) => <ul><li>{children}</li></ul>, 
-                  [INLINES.HYPERLINK]: (node, children) => <a href={node.data.uri} target="_blank" rel="noopener noreferrer">{children}</a>
+                  [INLINES.HYPERLINK]: (node, children) => isSafeURL(/* url = */ node.data.uri)     ? 
+                    <a href={node.data.uri} target="_blank" rel="noopener noreferrer">{children}</a>: 
+                    <span>{children}</span>
                 }
               }
             )}

@@ -1,6 +1,7 @@
 import { createClient } from "contentful";
 import type { EntryFieldTypes, EntrySkeletonType } from "contentful";
 import React from "react";
+import type { ReactNode } from "react";
 
 type DefaultProps = {
   id?: string, 
@@ -8,9 +9,16 @@ type DefaultProps = {
   style?: React.CSSProperties
 };
 
+type SkillInfo = {
+  id: string, 
+  name: string, 
+  iconElement: ReactNode, 
+  level: number
+};
+
 /**
  * ISO 8601 形式の日時情報を10進数の数値に変換
- * "2025-05-15T00:00:00Z" => 20250515
+ * 実例："2025-05-15T00:00:00Z" => `20250515`
  * @param date ISO8601の日時文字列（"YYYY-MM-DDThh:mm:ss"）
  * @returns YYYYMMDD という形の数値
  */
@@ -21,6 +29,21 @@ function parseDateToNumber(date: string){
                                        /* replacement = */ ""
                                      );
   return Number.parseInt(/* string = */ normalizedDate, /* radix = */ 10);
+}
+
+/**
+ * URLが安全かどうか判定する（XSS対策・セキュアな通信かどうか）
+ * 現在は，`https:` 及び `mailto:` スキームのみ許可する
+ * @param url 判定対象のURL
+ * @returns URLが安全ならtrue
+ */
+function isSafeURL(url: string): boolean{
+  try{
+    const parsedURL = new URL(/* url = */ url, /* base = */ window.location.origin);
+    return ["https:", "mailto:"].includes(parsedURL.protocol);
+  }catch{
+    return false;
+  }
 }
 
 // TopicLabel 用
@@ -80,5 +103,27 @@ interface ProductionSkeleton extends EntrySkeletonType{
   fields: Production;
 }
 
-export { client, isTopicType, parseDateToNumber };
-export type { DefaultProps, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton };
+//  SKILL ページ
+interface Skill{
+  name: EntryFieldTypes.Symbol;
+  level: EntryFieldTypes.Integer;
+  category: EntryFieldTypes.Symbol;
+}
+
+interface SkillSkeleton extends EntrySkeletonType{
+  contentTypeId: "skill";
+  fields: Skill;
+}
+
+interface Qualification{
+  name: EntryFieldTypes.Symbol;
+  date: EntryFieldTypes.Date;
+}
+
+interface QualificationSkeleton extends EntrySkeletonType{
+  contentTypeId: "qualification";
+  fields: Qualification;
+}
+
+export { client, isTopicType, parseDateToNumber, isSafeURL };
+export type { DefaultProps, SkillInfo, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton };

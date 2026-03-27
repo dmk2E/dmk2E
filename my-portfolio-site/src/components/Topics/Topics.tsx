@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import TopicLabel from "@/components/TopicLabel/TopicLabel";
 // Contentful関係
 import type { Entry } from "contentful";
-import { client } from "@/util";
+import { client, isSafeURL } from "@/util";
 import type { TopicItemSkeleton } from "@/util";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
@@ -20,7 +20,7 @@ export default function Topics( props: TopicsProps ){
   // Contentful からデータ抽出
   const [topics, setTopics] = useState<Array<Entry<TopicItemSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  useEffect(() =>{
+  useEffect(/* effect =  */ () =>{
     (async function getContentfulData(){
       try{
         const res = await client.getEntries<TopicItemSkeleton>(/* query = */ {
@@ -34,7 +34,7 @@ export default function Topics( props: TopicsProps ){
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, /* deps = */ []);
 
   return (
     <fieldset className={clsx("topics", props.className)}>
@@ -67,13 +67,15 @@ export default function Topics( props: TopicsProps ){
                         renderNode: {
                           [BLOCKS.PARAGRAPH]: (_, children) => <span>{children}</span>, 
                           [INLINES.HYPERLINK]: (node, children) => (
-                          <a 
-                          href={node.data.uri}
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          >
-                            {children}
-                          </a>)
+                          isSafeURL(/* url = */ node.data.uri) ? 
+                                              <a 
+                                              href={node.data.uri}
+                                              target="_blank" 
+                                              rel="noopener noreferrer"
+                                              >
+                                                {children}</a> : 
+                                              <span>{children}</span>
+                          )
                         }
                       }
                     )}
