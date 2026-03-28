@@ -15,6 +15,8 @@ install: update
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && npm install
 
 setup: install
+	# 便利コマンドの登録
+	@echo "source utils.sh" >> ~/.bashrc
 	# 環境設定ファイルの作成
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && \
 	touch .env && \
@@ -24,12 +26,3 @@ setup: install
 run: 
 	# フロントエンド側サーバの構築
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && npm run dev
-
-reset-github-token: 
-	# GitHub Token を一度リセットし，GitHub CLI を使って再度ログイン後，Bashコマンドを起動
-	@unset GITHUB_TOKEN && \
-	gh auth login && \
-	gh auth setup-git && \
-	echo -n "Bash で実行するコマンドを入力してください: " && \
-	read BASH_CMD && \
-	echo "$${BASH_CMD}" | bash

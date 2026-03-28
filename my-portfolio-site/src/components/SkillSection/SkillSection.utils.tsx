@@ -1,4 +1,4 @@
-import type { SkillInfo } from "@/util";
+import type { SkillInfo } from "@/utils";
 import type { ReactNode } from "react";
 
 const INF = 100;
@@ -29,7 +29,7 @@ function renderTables(skills: Array<SkillInfo>, maxTableRow: number = INF): Arra
   while(id < skills.length){
     // MAX_TABLE_ROW 個だけスキル情報を抽出する
     let numItems = maxTableRow;
-    const skillChunk = [];
+    const skillChunk: Array<SkillInfo> = [];
     while(id < skills.length && numItems > 0){
       skillChunk.push(skills[id]);
       numItems--;

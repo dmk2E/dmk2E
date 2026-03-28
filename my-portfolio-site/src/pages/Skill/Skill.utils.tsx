@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { SkillSkeleton, SkillInfo } from "@/util";
+import type { SkillSkeleton, SkillInfo } from "@/utils";
 import type { Entry } from "contentful";
 import contentfulLogo from "@/assets/contentful_c_logo_white.svg";
 

@@ -1,5 +1,5 @@
 import "./Profile.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { 
@@ -8,8 +8,8 @@ import {
   Link
 } from "@mui/material";
 // Contentful関係
-import { client, isSafeURL } from "@/util";
-import type { ProfileSkeleton } from "@/util";
+import { client, isSafeURL } from "@/utils";
+import type { ProfileSkeleton } from "@/utils";
 import type { Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";

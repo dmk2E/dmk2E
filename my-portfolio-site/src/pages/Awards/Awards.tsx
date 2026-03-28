@@ -1,11 +1,11 @@
 import "./Awards.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import { useState, useEffect } from "react";
 import Achievements from "@/components/Achievements/Achievements";
 // Contentful 関係
 import type { Entry } from "contentful";
-import { client } from "@/util";
-import type { AchievementSkeleton } from "@/util";
+import { client } from "@/utils";
+import type { AchievementSkeleton } from "@/utils";
 
 type AwardsProps = DefaultProps & {
 

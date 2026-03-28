@@ -15,7 +15,6 @@ function App() {
         <Navbar />
       </header>
       <Toolbar />
-      {/* FIXME: ルーティングの設定はここで */}
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/works" element={<Works />}/>

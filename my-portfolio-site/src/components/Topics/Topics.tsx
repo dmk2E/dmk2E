@@ -1,5 +1,5 @@
 import "./Topics.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import clsx from "clsx"
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
@@ -7,8 +7,8 @@ import { useState, useEffect } from "react";
 import TopicLabel from "@/components/TopicLabel/TopicLabel";
 // Contentful関係
 import type { Entry } from "contentful";
-import { client, isSafeURL } from "@/util";
-import type { TopicItemSkeleton } from "@/util";
+import { client, isSafeURL } from "@/utils";
+import type { TopicItemSkeleton } from "@/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 

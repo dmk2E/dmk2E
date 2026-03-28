@@ -1,10 +1,10 @@
 import "./Achievements.css";
-import { isSafeURL, type DefaultProps } from "@/util";
+import { isSafeURL, type DefaultProps } from "@/utils";
 import clsx from "clsx";
 import React from "react";
 // Contentful関係
 import type { Entry } from "contentful";
-import type { AchievementSkeleton } from "@/util";
+import type { AchievementSkeleton } from "@/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 

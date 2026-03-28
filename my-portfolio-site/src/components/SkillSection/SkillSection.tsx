@@ -1,5 +1,5 @@
 import "./SkillSection.css";
-import type { DefaultProps, SkillInfo } from "@/util";
+import type { DefaultProps, SkillInfo } from "@/utils";
 import clsx from "clsx";
 import type React from "react";
 import type { ReactNode } from "react";

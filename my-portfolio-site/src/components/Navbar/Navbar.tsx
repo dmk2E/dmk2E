@@ -13,7 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./Navbar.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 
 type NavbarProps = DefaultProps & {
   position?: "fixed" | "sticky" | "static", 

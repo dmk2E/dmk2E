@@ -1,5 +1,5 @@
 import "./Skill.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import { useState, useEffect } from "react";
 import { extractByCategory } from "./Skill.utils";
 // 自作コンポーネント
@@ -14,8 +14,8 @@ import devOpsToolIcon from "@/assets/tools.svg";
 import qualificationIcon from "@/assets/award.svg";
 // Contentful関係
 import type { Entry } from "contentful";
-import { client } from "@/util";
-import type { SkillInfo, SkillSkeleton, QualificationSkeleton } from "@/util";
+import { client } from "@/utils";
+import type { SkillInfo, SkillSkeleton, QualificationSkeleton } from "@/utils";
 
 type SkillProps = DefaultProps & {
 
@@ -23,6 +23,7 @@ type SkillProps = DefaultProps & {
 
 export default function Skill( props: SkillProps ){
   // カテゴリごとに，各技術スタックの情報を保持
+  const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
   //  Qualification 以外の5カテゴリー
   const [langSkillItems, setLangSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ [])
   const [libPlatformSkillItems, setLibPlatformSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
@@ -38,13 +39,15 @@ export default function Skill( props: SkillProps ){
         });
         // 取得したContentfulデータをカテゴリごとに分類
         const skillInfo: Array<Entry<SkillSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = res.items;
-        setLangSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "language"));
-        setLibPlatformSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "lib-platform"));
-        setDbSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "database"));
-        setFrameworkSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "framework"));
-        setDevOpsToolSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "devops-tool"));
+        setLangSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "language"));
+        setLibPlatformSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "lib-platform"));
+        setDbSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "database"));
+        setFrameworkSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "framework"));
+        setDevOpsToolSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "devops-tool"));
       }catch(err){
         console.error("Fetching Contentful data error:", err);
+      }finally{
+        setIsLoading(false);
       }
     })();
   }, /* deps = */ []);
@@ -58,12 +61,13 @@ export default function Skill( props: SkillProps ){
           content_type: "qualification", 
           order: ["fields.date"]
         });
-        setQualificationItems(res.items);
+        setQualificationItems(/* value = */ res.items);
       }catch(err){
         console.error("Fetching Contentful data error:", err);
       }
     })();
   }, /* deps = */ []);
+  if(isLoading)return <p>読み込み中...</p>
   
   return (
     <div 

@@ -3,17 +3,18 @@ import { useState, useEffect } from "react";
 import WorksSection from "@/components/WorksSection/WorksSection";
 // Contentful関係
 import type { Entry } from "contentful";
-import { client, parseDateToNumber } from "@/util";
-import type { DefaultProps, ProductionSkeleton } from "@/util";
+import { client, parseDateToNumber } from "@/utils";
+import type { DefaultProps, ProductionSkeleton } from "@/utils";
 
 type WorksProps = DefaultProps & {
 
 };
 
 export default function Works( props: WorksProps ){
+  // Contentful からのデータ取得
+  const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
   const [myOwnProducts, setMyOwnProducts] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   const [otherProjects, setOtherProjects] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
-
   useEffect(/* effect =  */ () =>{
       (async function getContentfulData(){
         try{
@@ -23,20 +24,22 @@ export default function Works( props: WorksProps ){
             order: ["-fields.date"]
           });
           const productions: Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = res.items;
-          setMyOwnProducts(productions.filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
+          setMyOwnProducts(/* value = */ productions.filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
                                       // 作成日の昇順に
                                       .sort(/* compareFn = */ (productA, productB) => {
                                         const numA = parseDateToNumber(/* date = */ productA.fields.date);
                                         const numB = parseDateToNumber(/* date = */ productB.fields.date);
                                         return numA - numB;
                                       }));
-          setOtherProjects(productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
+          setOtherProjects(/* value = */ productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
         }catch(err){
-        console.error("Fetching Contentful data error:", err);
+          console.error("Fetching Contentful data error:", err);
+        }finally{
+          setIsLoading(/* value = */ false);
         }
       })();
   }, /* deps = */ []);
-  if(myOwnProducts.length === 0 && otherProjects.length === 0)return <p>読み込み中...</p>
+  if(isLoading)return <p>読み込み中...</p>
   return (
     <div 
     id="works_page"

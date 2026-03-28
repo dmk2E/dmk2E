@@ -1,5 +1,5 @@
 import "./RelatedLinks.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import clsx from "clsx";
 import LinkButton from "@/components/LinkButton/LinkButton";
 // アイコン画像の取得

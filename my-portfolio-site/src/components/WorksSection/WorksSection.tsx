@@ -1,6 +1,6 @@
 import "./WorksSection.css";
-import { isSafeURL } from "@/util";
-import type { DefaultProps, ProductionSkeleton } from "@/util";
+import { isSafeURL } from "@/utils";
+import type { DefaultProps, ProductionSkeleton } from "@/utils";
 import clsx from "clsx";
 import React from "react";
 // Contentful関係

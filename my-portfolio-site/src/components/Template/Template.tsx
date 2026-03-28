@@ -1,5 +1,5 @@
 import "./Template.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import clsx from "clsx";
 
 type TemplateProps = DefaultProps & {
