@@ -1,8 +1,8 @@
 import "./TopicLabel.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import clsx from "clsx";
-import { isTopicType } from "@/util";
-import type { TopicType } from "@/util";
+import { isTopicType } from "@/utils";
+import type { TopicType } from "@/utils";
 
 type TopicLabelProps = DefaultProps & {
   type: string

@@ -1,5 +1,5 @@
 import "./Profile.css";
-import type { DefaultProps } from "@/util";
+import type { DefaultProps } from "@/utils";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { 
@@ -8,11 +8,11 @@ import {
   Link
 } from "@mui/material";
 // Contentful関係
-import { client } from "@/util";
-import type { ProfileSkeleton } from "@/util";
+import { client, isSafeURL } from "@/utils";
+import type { ProfileSkeleton } from "@/utils";
 import type { Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type { Options } from "@contentful/rich-text-react-renderer";
 
 type ProfileProps = DefaultProps & {
@@ -22,6 +22,13 @@ type ProfileProps = DefaultProps & {
 const richTextOptions: Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_, children) => <span>{ children }</span>, 
+    [INLINES.HYPERLINK]: (node, children) => isSafeURL(node.data.uri) ? 
+                                                      <a 
+                                                      href={node.data.uri} 
+                                                      target="_blank" 
+                                                      rel="noopener noreferrer"
+                                                      >{children}</a> : 
+                                                      <span>{children}</span>
   }, 
   renderText: (text: string) => {
     return text.split(/* separator = */ "。").flatMap((sentence, index, arr) => (
@@ -35,26 +42,26 @@ export default function Profile( props: ProfileProps ){
 
   const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
 
-  useEffect(() =>{
-    (async function (){
+  useEffect(/* effect =  */ () =>{
+    (async function getContentfulData(){
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {
           content_type: "profile", 
         });
         setProfileData(/* value = */ res.items);
       }catch(err){
-        console.error("Fetching Contentful datas Error!");
+        console.error("Fetching Contentful data error:", err);
       }finally{
         setIsLoading(/* value = */ false);
       }
     })();
-  }, []);
+  }, /* deps = */ []);
   return (
     <fieldset 
     className={clsx("profile", props.className)} 
     style={props.style}
     >
-      <legend>&#129489;&#8205;&#128187;&#65039;<span className="caption">Profile</span></legend>
+      <legend>🧑‍💻<span className="caption">Profile</span></legend>
       <Avatar 
       src={props.iconImage} 
       component={Link}
@@ -77,7 +84,7 @@ export default function Profile( props: ProfileProps ){
         margin: "0 1rem 1rem 1rem"
       }}
       >
-        {isLoading || profileData.length == 0 ? "読み込み中" : documentToReactComponents(
+        {isLoading || profileData.length === 0 ? "読み込み中" : documentToReactComponents(
           /* richTextDocument = */ profileData[0].fields.introduction, 
           /* options = */ richTextOptions
         )}

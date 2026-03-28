@@ -1,0 +1,39 @@
+#skill_page{
+  color: inherit;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icon{
+  width: 1.5rem;
+}
+
+.multi-images{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.multi-images img{
+  display: inline-block;
+  width: 1.4rem;
+  margin: 0px 2px;
+}
+
+@media (max-width: 900px){
+  #skill_page{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+@media (max-width: 512px){
+  .multi-images{
+    flex-direction: column;
+  }
+}

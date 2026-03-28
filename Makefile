@@ -1,4 +1,4 @@
-.PHONY: update install setup run
+.PHONY: update install setup run reset-github-token
 
 MAKEFILE_DIR := $(abspath $(lastword ${MAKEFILE_LIST})/..)
 
@@ -15,6 +15,8 @@ install: update
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && npm install
 
 setup: install
+	# 便利コマンドの登録
+	@echo "source utils.sh" >> ~/.bashrc
 	# 環境設定ファイルの作成
 	@cd ${MAKEFILE_DIR}/my-portfolio-site && \
 	touch .env && \
