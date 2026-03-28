@@ -122,7 +122,7 @@ export default function Skill( props: SkillProps ){
       style={{transform: "scale(1.3)"}} 
       alt="tool icon"
       />} 
-      sectionName="DevOPS / Tool" 
+      sectionName="DevOps / Tool" 
       sectionNameColor="#d1d5db"
       skills={devOpsToolSkillItems}
       />

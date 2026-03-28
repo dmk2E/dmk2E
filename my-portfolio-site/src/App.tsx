@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Home from "@/pages/Home/Home";
 import Works from "@/pages/Works/Works";
 import Skill from "@/pages/Skill/Skill";
+import Awards from "@/pages/Awards/Awards";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/works" element={<Works />}/>
         <Route path="/skill" element={<Skill />}/>
+        <Route path="/awards" element={<Awards />}/>
       </Routes>
     </>
   );
