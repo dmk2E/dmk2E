@@ -1,0 +1,42 @@
+.achievements{
+  color: #000;
+  background-color: #a6a6a6;
+  text-align: left;
+  min-width: 0;
+  width: 90%;
+  border-radius: 1.5rem;
+  margin: 0.5rem 0;
+  /* フレックスボックス */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.achievements legend{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.achievements legend .caption{
+  --outline: #fab803;
+
+  text-shadow: 
+    -1px -1px 0 var(--outline), 
+    1px -1px 0 var(--outline), 
+    -1px 1px 0 var(--outline), 
+    1px 1px 0 var(--outline);
+}
+
+.achievements details p{
+  padding: 0 1rem;
+}
+
+.achievements details{
+  color: #333;
+}
+
+.achievements .emphasis summary{
+  font-weight: bold;
+}
