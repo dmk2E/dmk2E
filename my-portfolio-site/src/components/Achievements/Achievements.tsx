@@ -1,6 +1,7 @@
 import "./Achievements.css";
-import type { DefaultProps } from "@/util";
+import { isSafeURL, type DefaultProps } from "@/util";
 import clsx from "clsx";
+import React from "react";
 // Contentful関係
 import type { Entry } from "contentful";
 import type { AchievementSkeleton } from "@/util";
@@ -39,7 +40,13 @@ export default function Achievements( props: AchievementsProps ){
               /* options = */ {
                 renderNode: {
                   [BLOCKS.PARAGRAPH]: (_, children) => <span>{children}</span>, 
-                  [INLINES.HYPERLINK]: (node, children) => <a href={node.data.uri} target="_blank" rel="noopener noreferrer">{children}</a>
+                  [INLINES.HYPERLINK]: (node, children) => isSafeURL(node.data.uri) ? 
+                                                            <a 
+                                                            href={node.data.uri} 
+                                                            target="_blank" 
+                                                            rel="noopener noreferrer"
+                                                            >{children}</a>         :
+                                                            <span>{children}</span>
                 }
               }
             )}
@@ -48,7 +55,13 @@ export default function Achievements( props: AchievementsProps ){
             /* richTextDocument = */ item.fields.content, 
             /* options = */ {
               renderNode: {
-                [INLINES.HYPERLINK]: (node, children) => <a href={node.data.uri} target="_blank" rel="noopener noreferrer">{children}</a>
+                [INLINES.HYPERLINK]: (node, children) => isSafeURL(node.data.uri) ? 
+                                                            <a 
+                                                            href={node.data.uri} 
+                                                            target="_blank" 
+                                                            rel="noopener noreferrer"
+                                                            >{children}</a>         :
+                                                            <span>{children}</span>
               }
             }
           )}

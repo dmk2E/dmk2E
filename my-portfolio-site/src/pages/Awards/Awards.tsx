@@ -13,6 +13,7 @@ type AwardsProps = DefaultProps & {
 
 export default function Awards( props: AwardsProps ){
   // Contentful からデータの抽出
+  const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
   const [achievements, setAchievements] = useState<Array<Entry<AchievementSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
   useEffect(() =>{
     (async function getContentfulData(){
@@ -23,10 +24,13 @@ export default function Awards( props: AwardsProps ){
         });
         setAchievements(/* value = */ res.items);
       }catch(err){
-        console.error("Fetching Contentful data error!");
+        console.error("Fetching Contentful data error:", err);
+      }finally{
+        setIsLoading(false);
       }
     })();
   }, []);
+  if(isLoading)return <p>読み込み中...</p>
   
   return (
     <div 

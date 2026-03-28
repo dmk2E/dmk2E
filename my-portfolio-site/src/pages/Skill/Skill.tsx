@@ -44,7 +44,7 @@ export default function Skill( props: SkillProps ){
         setFrameworkSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "framework"));
         setDevOpsToolSkillItems(extractByCategory(/* skills = */ skillInfo, /* category = */ "devops-tool"));
       }catch(err){
-        console.error("Fetching Contentful data Error!");
+        console.error("Fetching Contentful data error:", err);
       }
     })();
   }, /* deps = */ []);
@@ -60,7 +60,7 @@ export default function Skill( props: SkillProps ){
         });
         setQualificationItems(res.items);
       }catch(err){
-        console.error("Fetching Contentful data Error!");
+        console.error("Fetching Contentful data error:", err);
       }
     })();
   }, /* deps = */ []);

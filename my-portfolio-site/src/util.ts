@@ -125,7 +125,7 @@ interface QualificationSkeleton extends EntrySkeletonType{
   fields: Qualification;
 }
 
-//  AWARD ページ
+//  AWARDS ページ
 interface Achievement{
   title: EntryFieldTypes.Symbol;
   heading: EntryFieldTypes.RichText;

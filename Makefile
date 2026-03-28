@@ -31,5 +31,5 @@ reset-github-token:
 	gh auth login && \
 	gh auth setup-git && \
 	echo -n "Bash で実行するコマンドを入力してください: " && \
-	read MEMO && \
-	echo "$$MEMO" | bash
+	read BASH_CMD && \
+	echo "$${BASH_CMD}" | bash
