@@ -32,7 +32,7 @@ export default function Works( props: WorksProps ){
                                       }));
           setOtherProjects(productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
         }catch(err){
-          console.error("Fetching Contentful data error!");
+        console.error("Fetching Contentful data error:", err);
         }
       })();
   }, /* deps = */ []);

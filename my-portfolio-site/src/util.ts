@@ -125,5 +125,18 @@ interface QualificationSkeleton extends EntrySkeletonType{
   fields: Qualification;
 }
 
+//  AWARDS ページ
+interface Achievement{
+  title: EntryFieldTypes.Symbol;
+  heading: EntryFieldTypes.RichText;
+  content: EntryFieldTypes.RichText;
+  date: EntryFieldTypes.Date;
+}
+
+interface AchievementSkeleton extends EntrySkeletonType{
+  contentTypeId: "achievement";
+  fields: Achievement;
+}
+
 export { client, isTopicType, parseDateToNumber, isSafeURL };
-export type { DefaultProps, SkillInfo, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton };
+export type { DefaultProps, SkillInfo, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton, AchievementSkeleton };

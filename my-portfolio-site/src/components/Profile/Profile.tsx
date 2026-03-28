@@ -50,7 +50,7 @@ export default function Profile( props: ProfileProps ){
         });
         setProfileData(/* value = */ res.items);
       }catch(err){
-        console.error("Fetching Contentful data Error!");
+        console.error("Fetching Contentful data error:", err);
       }finally{
         setIsLoading(/* value = */ false);
       }

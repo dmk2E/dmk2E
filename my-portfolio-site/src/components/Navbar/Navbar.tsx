@@ -29,7 +29,7 @@ const pages: Array<PagesInfo> = [
   { name: "🏡HOME", path: "/" }, 
   { name: "🔧WORKS", path: "/works" }, 
   { name: "🌱SKILL", path: "/skill" }, 
-  { name: "🏆AWARDS", path: "#" }
+  { name: "🏆AWARDS", path: "/awards" }
 ];
 
 export default function Navbar( props: NavbarProps ){
