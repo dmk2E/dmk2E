@@ -13,6 +13,14 @@
   flex-wrap: wrap;
 }
 
+.profile a{
+  text-decoration: none;
+}
+
+.profile a:hover{
+  text-decoration: underline;
+}
+
 .profile legend{
   font-size: 1.5rem;
   font-weight: bold;

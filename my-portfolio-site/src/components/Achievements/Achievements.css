@@ -1,6 +1,6 @@
 .achievements{
   color: #000;
-  background-color: #a6a6a6;
+  background-color: #bebebe;
   text-align: left;
   min-width: 0;
   width: 90%;
@@ -11,6 +11,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.achievements a{
+  text-decoration: none;
+}
+
+.achievements a:hover{
+  text-decoration: underline;
 }
 
 .achievements legend{
@@ -35,6 +43,10 @@
 
 .achievements details{
   color: #333;
+}
+
+.achievements details:hover{
+  cursor: pointer;
 }
 
 .achievements .emphasis summary{
