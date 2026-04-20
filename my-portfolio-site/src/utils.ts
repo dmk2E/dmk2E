@@ -158,5 +158,5 @@ interface AchievementSkeleton extends EntrySkeletonType{
   fields: Achievement;
 }
 
-export { client, ensureTopicType, parseDateToNumber, isSafeURL };
+export { client, topicTypes, ensureTopicType, parseDateToNumber, isSafeURL };
 export type { DefaultProps, SkillInfo, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton, AchievementSkeleton };
