@@ -1,31 +1,30 @@
 import "./DropDownMenu.css";
 import type { DefaultProps } from "@/utils";
 import clsx from "clsx";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useId } from "react";
 import type React from "react";
 
-type DropDownMenuProps = DefaultProps & {
+type DropDownMenuProps<T extends string> = DefaultProps & {
   initialItemId?: number, 
   label: string, 
-  setItemFunc?: React.Dispatch<React.SetStateAction<any>>, 
-  options: Array<string>
+  setItemFunc?: React.Dispatch<React.SetStateAction<T>>, 
+  options: Array<T>
 };
 
-export default function DropDownMenu( props: DropDownMenuProps ){
-  const menuId = useRef<string>(/* initialValue = */ "");
+export default function DropDownMenu<T extends string>( props: DropDownMenuProps<T> ){
+  const menuId = useId();
   const {initialItemId, label, options, setItemFunc} = props;
-  const [currentOption, setCurrentOption] = useState<string>(/* initialState = */ options[initialItemId ? initialItemId : 0]);
+  const [currentOption, setCurrentOption] = useState<T>(/* initialState = */ options[initialItemId ?? 0]);
 
   useEffect(/* effect = */ () =>{
-    menuId.current = crypto.randomUUID();
     if(setItemFunc && initialItemId)setItemFunc(/* value = */ options[initialItemId]);
   }, /* deps = */ []);
 
   const handleChange = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
     evt.stopPropagation();
     const currentValue = evt.currentTarget.value;
-    setCurrentOption(/* value = */ currentValue);
-    if(setItemFunc)setItemFunc(/* value = */ currentValue);
+    setCurrentOption(/* value = */ currentValue as T);
+    if(setItemFunc)setItemFunc(/* value = */ currentValue as T);
   };
 
   return (
@@ -35,9 +34,9 @@ export default function DropDownMenu( props: DropDownMenuProps ){
     style={props.style}
     aria-label="drop-down-menu"
     >
-      <label htmlFor={menuId.current}>{label}</label>：
+      <label htmlFor={menuId}>{label}</label>：
       <select 
-      id={menuId.current} 
+      id={menuId} 
       value={currentOption} 
       onChange={handleChange}
       >

@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 512px){
-  .topics .topic-control-bar{
+  .topics .topics-control-bar{
     gap: 0 0.5rem;
     font-size: 0.7rem;
   }

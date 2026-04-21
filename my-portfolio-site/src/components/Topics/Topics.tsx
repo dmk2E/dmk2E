@@ -3,7 +3,7 @@ import type { DefaultProps } from "@/utils";
 import clsx from "clsx"
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 // 自作コンポーネント群
 import DropDownMenu from "@/components/DropDownMenu/DropDownMenu";
 import TopicLabel from "@/components/TopicLabel/TopicLabel";
@@ -21,7 +21,7 @@ type TopicsProps = DefaultProps & {
 export default function Topics( props: TopicsProps ){
   // Contentful からデータ抽出
   type TopicItems = Array<Entry<TopicItemSkeleton, "WITHOUT_LINK_RESOLUTION", string>>;
-  let topics = useRef<TopicItems>(/* initialValue = */ []);
+  const [rawTopics, setRawTopics] = useState<TopicItems>(/* initialValue = */ []);
   const [targetTopics, setTargetTopics] = useState<TopicItems>(/* initialState = */ []);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(/* effect =  */ () =>{
@@ -31,8 +31,7 @@ export default function Topics( props: TopicsProps ){
           content_type: "topicItem", 
           order: ["-fields.date"]
         });
-        topics.current = res.items;
-        setTargetTopics(/* value = */ res.items);
+        setRawTopics(/* value = */ res.items);
       }catch(err){
         console.error("Fetching Contentful data error:", err);
       }finally{
@@ -53,17 +52,18 @@ export default function Topics( props: TopicsProps ){
   const [currentFilter, setCurrentFilter] = useState<FilterType>(/* initialState = */ NO_FILTER);
 
   //  更新処理
+  //   Contentful からデータが届いたタイミングで，ソート機能等が既にデフォルト値でない場合にも対応
   useEffect(/* effect = */ () =>{
     const sortedTopics: TopicItems = sorting === DESC ? 
-                                  [...topics.current] : 
-                                  [...topics.current].sort(
+                                  [...rawTopics] : 
+                                  [...rawTopics].sort(
                                     (a, b) => parseDateToNumber(/* date = */ a.fields.date) - parseDateToNumber(/* date = */ b.fields.date)
                                   );
-    setTargetTopics(/* value = */ currentFilter == NO_FILTER ? 
+    setTargetTopics(/* value = */ currentFilter === NO_FILTER ? 
                                                 sortedTopics : 
-                                                sortedTopics.filter(topic => topic.fields.label == currentFilter
+                                                sortedTopics.filter(topic => topic.fields.label === currentFilter
     ));
-  }, /* deps = */ [sorting, currentFilter]);
+  }, /* deps = */ [rawTopics, sorting, currentFilter]);
 
   return (
     <fieldset className={clsx("topics", props.className)}>
