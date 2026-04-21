@@ -47,10 +47,30 @@ function isSafeURL(url: string): boolean{
 }
 
 // TopicLabel 用
-type TopicType = "NEWS" | "EVENT" | "ARTICLE" | "PROJECT";
+const topicTypes = [
+  "NEWS", "EVENT", "ARTICLE", "PROJECT", 
+  "OTHER"
+] as const;
 
+type TopicType = (typeof topicTypes)[number];
+
+/**
+ * Topics 欄の各項目に付属するラベルとして適切か判定する
+ * @param value 判定対象の文字列
+ * @returns 適切なら true
+ */
 function isTopicType(value: string): value is TopicType{
-  return ["NEWS", "EVENT", "ARTICLE", "PROJECT"].includes(value);
+  return (topicTypes as readonly string[]).includes(value);
+}
+
+/**
+ * 文字列を TopicType 型に変換する．
+ * 適切な型でない場合は，デフォルト値として "OTHER" を返します．
+ * @param value 判定対象の文字列
+ * @returns 変換後の TopicType
+ */
+function ensureTopicType(value: string): TopicType{
+  return isTopicType(value) ? value : "OTHER";
 }
 
 // Contentful関係
@@ -138,5 +158,5 @@ interface AchievementSkeleton extends EntrySkeletonType{
   fields: Achievement;
 }
 
-export { client, isTopicType, parseDateToNumber, isSafeURL };
+export { client, topicTypes, ensureTopicType, parseDateToNumber, isSafeURL };
 export type { DefaultProps, SkillInfo, TopicType, ProfileSkeleton, TopicItemSkeleton, ProductionSkeleton, SkillSkeleton, QualificationSkeleton, AchievementSkeleton };

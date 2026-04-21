@@ -13,6 +13,28 @@
   color: #1f2937;
 }
 
+.topics .topics-control-bar{
+  background-color: #f9fafb;
+  padding: 1px 0;
+  border-top: 1px solid #d6d8dd;
+  border-bottom: 1px solid #d6d8dd;
+  gap: 0 1rem;
+
+  /* フレックスボックス */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 512px){
+  .topics .topics-control-bar{
+    gap: 0 0.5rem;
+    font-size: 0.7rem;
+  }
+}
+
 .topics .caption{
   --outline: #059669;
   
