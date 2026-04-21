@@ -14,12 +14,23 @@ type DropDownMenuProps<T extends string> = DefaultProps & {
 export default function DropDownMenu<T extends string>( props: DropDownMenuProps<T> ){
   const menuId = useId();
   const {initialItemId, label, options, setItemFunc} = props;
-  const [currentOption, setCurrentOption] = useState<T>(/* initialState = */ options[initialItemId ?? 0]);
 
+  const isValidItemId = (itemId: number | undefined): itemId is number =>{
+    return itemId !== undefined && 
+           0 <= itemId && itemId < options.length;
+  };
+  const handleInitialCurrentOption = (): T | undefined => {
+    if(options.length === 0)return undefined;
+    return isValidItemId(/* itemId = */ initialItemId) ? options[initialItemId] : options[0];
+  };
+  const [currentOption, setCurrentOption] = useState<T | undefined>(/* initialState = */ handleInitialCurrentOption());
+
+  // 親コンポーネントで管理している React 変数も初期値にセット
   useEffect(/* effect = */ () =>{
-    if(setItemFunc && initialItemId)setItemFunc(/* value = */ options[initialItemId]);
+    if(setItemFunc && options.length > 0 && isValidItemId(/* itemId = */ initialItemId))setItemFunc(/* value = */ options[initialItemId]);
   }, /* deps = */ []);
 
+  // ユーザがドロップダウンメニューを操作した時の処理
   const handleChange = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
     evt.stopPropagation();
     const currentValue = evt.currentTarget.value;
