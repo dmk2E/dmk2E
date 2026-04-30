@@ -9,9 +9,9 @@ type TopicLabelProps = DefaultProps & {
 };
 
 const typeToColor: Record<TopicType, string> = {
-  NEWS: "#b4e2ff", 
-  EVENT: "#ffd1b4", 
-  ARTICLE: "#bdffb4", 
+  NEWS: "#a5d7f6", 
+  EVENT: "#fbc09c", 
+  ARTICLE: "#95e28a", 
   PROJECT: "#eab4ff", 
   OTHER: "#aaa"
 };
