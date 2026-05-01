@@ -4,7 +4,7 @@ import Achievements from "@/components/Achievements/Achievements";
 // Contentful 関係
 import { client } from "@/utils";
 import type { AchievementSkeleton } from "@/utils";
-// TanstackQuery
+// TanStack Query
 import { useQuery } from "@tanstack/react-query";
 
 type AwardsProps = DefaultProps & {
@@ -15,8 +15,6 @@ export default function Awards( props: AwardsProps ){
   // Contentful からデータの抽出
   const { data: achievements, isLoading, isError } = useQuery(/* options = */ {
     queryKey: ["contentful", "awards"], 
-    staleTime: Infinity, 
-    gcTime: Infinity, 
     queryFn: async () =>{
       try{
         const res = await client.getEntries<AchievementSkeleton>({

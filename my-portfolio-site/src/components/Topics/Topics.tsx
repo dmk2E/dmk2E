@@ -13,7 +13,7 @@ import { client, isSafeURL, parseDateToNumber, topicTypes } from "@/utils";
 import type { TopicType, TopicItemSkeleton } from "@/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-// TanstackQuery
+// TanStack Query
 import { useQuery } from "@tanstack/react-query";
 
 type TopicsProps = DefaultProps & {
@@ -26,8 +26,6 @@ export default function Topics( props: TopicsProps ){
 
   const { data: rawTopics, isLoading, isError } = useQuery(/* options = */ {
     queryKey: ["contentful", "topics"], 
-    staleTime: Infinity, 
-    gcTime: Infinity, 
     queryFn: async () =>{
       try{
         const res = await client.getEntries<TopicItemSkeleton>(/* query = */ {

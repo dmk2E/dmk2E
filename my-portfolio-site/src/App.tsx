@@ -7,10 +7,19 @@ import Home from "@/pages/Home/Home";
 import Works from "@/pages/Works/Works";
 import Skill from "@/pages/Skill/Skill";
 import Awards from "@/pages/Awards/Awards";
-// TanstackQuery
+// TanStack Query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient(/* config = */ {
+  defaultOptions: {
+    queries: {
+      // Contentful へのAPI呼び出しを最小限に
+      staleTime: Infinity, 
+      gcTime: Infinity, 
+      retry: 1
+    }
+  }
+});
 
 function App() {
   return (

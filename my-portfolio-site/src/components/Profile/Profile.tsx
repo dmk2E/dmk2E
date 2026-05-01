@@ -12,7 +12,7 @@ import type { ProfileSkeleton } from "@/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type { Options } from "@contentful/rich-text-react-renderer";
-// TanstackQuery
+// TanStack Query
 import { useQuery } from "@tanstack/react-query";
 
 type ProfileProps = DefaultProps & {
@@ -40,9 +40,7 @@ const richTextOptions: Options = {
 export default function Profile( props: ProfileProps ){
   // Contentful からのデータ取得
   const { data: profileData, isLoading, isError } = useQuery(/* options = */ {
-    queryKey: ["contentful", "profile"], 
-    staleTime: Infinity, 
-    gcTime: Infinity, 
+    queryKey: ["contentful", "profile"],  
     queryFn: async () =>{
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {

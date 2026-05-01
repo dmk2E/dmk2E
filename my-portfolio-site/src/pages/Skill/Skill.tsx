@@ -15,7 +15,7 @@ import qualificationIcon from "@/assets/award.svg";
 // Contentful関係
 import { client } from "@/utils";
 import type { SkillSkeleton, QualificationSkeleton } from "@/utils";
-// TanstackQuery
+// TanStack Query
 import { useQuery } from "@tanstack/react-query";
 
 type SkillProps = DefaultProps & {
@@ -25,8 +25,6 @@ type SkillProps = DefaultProps & {
 export default function Skill( props: SkillProps ){
   const {data: rawSkillData, isLoading, isError} = useQuery(/* options = */ {
     queryKey: ["contentful", "skill"], 
-    staleTime: Infinity, 
-    gcTime: Infinity, 
     queryFn: async () =>{
       try{
         const [resSkillItems, resQualificationItems] = await Promise.all(/* values = */ [

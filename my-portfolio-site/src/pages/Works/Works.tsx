@@ -4,7 +4,7 @@ import WorksSection from "@/components/WorksSection/WorksSection";
 // Contentful関係
 import { client, parseDateToNumber } from "@/utils";
 import type { DefaultProps, ProductionSkeleton } from "@/utils";
-// TanstackQuery
+// TanStack Query
 import { useQuery } from "@tanstack/react-query";
 
 type WorksProps = DefaultProps & {
@@ -15,8 +15,6 @@ export default function Works( props: WorksProps ){
   // Contentful からのデータ取得
   const { data: rawProjectData, isLoading, isError } = useQuery(/* options = */{
     queryKey: ["contentful", "works"], 
-    staleTime: Infinity, 
-    gcTime: Infinity, 
     queryFn: async () =>{
         try{
           const res = await client.getEntries<ProductionSkeleton>(/* query = */ {
