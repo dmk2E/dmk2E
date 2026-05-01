@@ -1,10 +1,11 @@
 import "./Works.css";
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import WorksSection from "@/components/WorksSection/WorksSection";
 // Contentful関係
-import type { Entry } from "contentful";
 import { client, parseDateToNumber } from "@/utils";
 import type { DefaultProps, ProductionSkeleton } from "@/utils";
+// TanStack Query
+import { useQuery } from "@tanstack/react-query";
 
 type WorksProps = DefaultProps & {
 
@@ -12,34 +13,40 @@ type WorksProps = DefaultProps & {
 
 export default function Works( props: WorksProps ){
   // Contentful からのデータ取得
-  const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
-  const [myOwnProducts, setMyOwnProducts] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
-  const [otherProjects, setOtherProjects] = useState<Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
-  useEffect(/* effect =  */ () =>{
-      (async function getContentfulData(){
+  const { data: rawProjectData, isLoading, isError } = useQuery(/* options = */{
+    queryKey: ["contentful", "works"], 
+    queryFn: async () =>{
         try{
           const res = await client.getEntries<ProductionSkeleton>(/* query = */ {
             content_type: "production", 
             // 作成日の降順で取得
             order: ["-fields.date"]
           });
-          const productions: Array<Entry<ProductionSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = res.items;
-          setMyOwnProducts(/* value = */ productions.filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
-                                      // 作成日の昇順に
-                                      .sort(/* compareFn = */ (productA, productB) => {
-                                        const numA = parseDateToNumber(/* date = */ productA.fields.date);
-                                        const numB = parseDateToNumber(/* date = */ productB.fields.date);
-                                        return numA - numB;
-                                      }));
-          setOtherProjects(/* value = */ productions.filter(/* predicate = */ product => product.fields.isTeamDevelopment));
+          return res.items;
         }catch(err){
           console.error("Fetching Contentful data error:", err);
-        }finally{
-          setIsLoading(/* value = */ false);
+          throw err;
         }
-      })();
-  }, /* deps = */ []);
-  if(isLoading)return <p>読み込み中...</p>
+    }
+  });
+
+  const myOwnProducts = useMemo(/* factory = */ () =>{
+    return (rawProjectData ?? []).filter(/* predicate = */ product => !product.fields.isTeamDevelopment)
+                                 // 作成日の昇順に
+                                 .sort(/* compareFn = */ (productA, productB) => {
+                                   const numA = parseDateToNumber(/* date = */ productA.fields.date);
+                                   const numB = parseDateToNumber(/* date = */ productB.fields.date);
+                                   return numA - numB;
+    });
+  }, /* deps = */ [rawProjectData]);
+
+  const otherProjects = useMemo(/* factory = */ () =>{
+    return (rawProjectData ?? []).filter(/* predicate = */ product => product.fields.isTeamDevelopment);
+  }, /* deps = */ [rawProjectData]);
+
+  if(isLoading)return <p>読み込み中...</p>;
+  if(isError)return <p>エラーが発生しました</p>;
+
   return (
     <div 
     id="works_page"

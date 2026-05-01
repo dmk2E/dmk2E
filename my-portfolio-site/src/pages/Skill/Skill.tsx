@@ -1,6 +1,6 @@
 import "./Skill.css";
 import type { DefaultProps } from "@/utils";
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import { extractByCategory } from "./Skill.utils";
 // 自作コンポーネント
 import SkillSection from "@/components/SkillSection/SkillSection";
@@ -13,62 +13,60 @@ import frameworkIcon from "@/assets/diagram-3.svg";
 import devOpsToolIcon from "@/assets/tools.svg";
 import qualificationIcon from "@/assets/award.svg";
 // Contentful関係
-import type { Entry } from "contentful";
 import { client } from "@/utils";
-import type { SkillInfo, SkillSkeleton, QualificationSkeleton } from "@/utils";
+import type { SkillSkeleton, QualificationSkeleton } from "@/utils";
+// TanStack Query
+import { useQuery } from "@tanstack/react-query";
 
 type SkillProps = DefaultProps & {
 
 };
 
 export default function Skill( props: SkillProps ){
-  // カテゴリごとに，各技術スタックの情報を保持
-  const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
-  //  Qualification 以外の5カテゴリー
-  const [langSkillItems, setLangSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ [])
-  const [libPlatformSkillItems, setLibPlatformSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
-  const [dbSkillItems, setDbSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
-  const [frameworkSkillItems, setFrameworkSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
-  const [devOpsToolSkillItems, setDevOpsToolSkillItems] = useState<Array<SkillInfo>>(/* initialState = */ []);
-  useEffect(/* effect =  */ () =>{
-    (async function getContentfulData(){
+  const {data: rawSkillData, isLoading, isError} = useQuery(/* options = */ {
+    queryKey: ["contentful", "skill"], 
+    queryFn: async () =>{
       try{
-        const res = await client.getEntries<SkillSkeleton>(/* query = */ {
-          content_type: "skill", 
-          order: ["sys.createdAt"]
-        });
-        // 取得したContentfulデータをカテゴリごとに分類
-        const skillInfo: Array<Entry<SkillSkeleton, "WITHOUT_LINK_RESOLUTION", string>> = res.items;
-        setLangSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "language"));
-        setLibPlatformSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "lib-platform"));
-        setDbSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "database"));
-        setFrameworkSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "framework"));
-        setDevOpsToolSkillItems(/* value = */ extractByCategory(/* skills = */ skillInfo, /* category = */ "devops-tool"));
+        const [resSkillItems, resQualificationItems] = await Promise.all(/* values = */ [
+          client.getEntries<SkillSkeleton>(/* query = */ {content_type: "skill", order: ["sys.createdAt"]}), 
+          client.getEntries<QualificationSkeleton>(/* query = */ {content_type: "qualification", order: ["fields.date"]})
+        ]);
+        return {skillItems: resSkillItems.items, qualificationItems: resQualificationItems.items};
       }catch(err){
         console.error("Fetching Contentful data error:", err);
-      }finally{
-        setIsLoading(false);
+        throw err;
       }
-    })();
-  }, /* deps = */ []);
+    }
+  });
 
-  //  Qualification カテゴリー
-  const [qualificationItems, setQualificationItems] = useState<Array<Entry<QualificationSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
-  useEffect(/* effect =  */ () =>{
-    (async function getContentfulData(){
-      try{
-        const res = await client.getEntries<QualificationSkeleton>(/* query = */ {
-          content_type: "qualification", 
-          order: ["fields.date"]
-        });
-        setQualificationItems(/* value = */ res.items);
-      }catch(err){
-        console.error("Fetching Contentful data error:", err);
-      }
-    })();
-  }, /* deps = */ []);
-  if(isLoading)return <p>読み込み中...</p>
-  
+  // カテゴリごとに，各技術スタックの情報を保持
+  //  Qualification 
+  const qualificationItems = rawSkillData?.qualificationItems ?? [];
+
+  //  Qualification 以外の5カテゴリー
+  const langSkillItems = useMemo(/* factory = */ () =>{
+    return extractByCategory(/* skills = */ rawSkillData?.skillItems ?? [], /* category = */ "language");
+  }, /* deps = */ [rawSkillData]);
+
+  const libPlatformSkillItems = useMemo(/* factory = */ () =>{
+    return extractByCategory(/* skills = */ rawSkillData?.skillItems ?? [], /* category = */ "lib-platform");
+  }, /* deps = */ [rawSkillData]);
+
+  const dbSkillItems = useMemo(/* factory = */ () =>{
+    return extractByCategory(/* skills = */ rawSkillData?.skillItems ?? [], /* category = */ "database");
+  }, /* deps = */ [rawSkillData]);
+
+  const frameworkSkillItems = useMemo(/* factory = */ () =>{
+    return extractByCategory(/* skills = */ rawSkillData?.skillItems ?? [], /* category = */ "framework");
+  }, /* deps = */ [rawSkillData]);
+
+  const devOpsToolSkillItems = useMemo(/* factory = */ () =>{
+    return extractByCategory(/* skills = */ rawSkillData?.skillItems ?? [], /* category = */ "devops-tool");
+  }, /* deps = */ [rawSkillData]);
+
+  if(isLoading)return <p>読み込み中...</p>;
+  if(isError)return <p>エラーが発生しました</p>;
+
   return (
     <div 
     id="skill_page" 

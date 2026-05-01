@@ -50,6 +50,23 @@
   text-align: left;
 }
 
+.topics table{
+  border: 1px #dddbdb solid;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.topics table tr:nth-of-type(2n - 1){
+  background-color: #f3f3f3;
+  vertical-align: middle;
+}
+
+.topics table tr td:nth-of-type(-n + 3){
+  width: 0.1%;
+}
+
 .topics a{
   text-decoration: none;
 }
