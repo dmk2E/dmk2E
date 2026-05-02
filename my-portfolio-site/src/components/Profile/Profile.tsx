@@ -1,6 +1,5 @@
 import "./Profile.css";
 import type { DefaultProps } from "@/utils";
-import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { 
   Avatar, 
@@ -10,10 +9,11 @@ import {
 // Contentful関係
 import { client, isSafeURL } from "@/utils";
 import type { ProfileSkeleton } from "@/utils";
-import type { Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type { Options } from "@contentful/rich-text-react-renderer";
+// TanStack Query
+import { useQuery } from "@tanstack/react-query";
 
 type ProfileProps = DefaultProps & {
   iconImage: string
@@ -38,24 +38,22 @@ const richTextOptions: Options = {
 };
 
 export default function Profile( props: ProfileProps ){
-  const [profileData, setProfileData] = useState<Array<Entry<ProfileSkeleton, "WITHOUT_LINK_RESOLUTION", string>>>(/* initialState = */ []);
-
-  const [isLoading, setIsLoading] = useState<boolean>(/* initialState = */ true);
-
-  useEffect(/* effect =  */ () =>{
-    (async function getContentfulData(){
+  // Contentful からのデータ取得
+  const { data: profileData, isLoading, isError } = useQuery(/* options = */ {
+    queryKey: ["contentful", "profile"],  
+    queryFn: async () =>{
       try{
         const res = await client.getEntries<ProfileSkeleton>(/* query = */ {
           content_type: "profile", 
         });
-        setProfileData(/* value = */ res.items);
+        return res.items;
       }catch(err){
         console.error("Fetching Contentful data error:", err);
-      }finally{
-        setIsLoading(/* value = */ false);
+        throw err;
       }
-    })();
-  }, /* deps = */ []);
+    }
+  });
+
   return (
     <fieldset 
     className={clsx("profile", props.className)} 
@@ -79,16 +77,19 @@ export default function Profile( props: ProfileProps ){
         }
       }} 
       />
-      <Box 
-      sx={{
-        margin: "0 1rem 1rem 1rem"
-      }}
-      >
-        {isLoading || profileData.length === 0 ? "読み込み中" : documentToReactComponents(
-          /* richTextDocument = */ profileData[0].fields.introduction, 
-          /* options = */ richTextOptions
-        )}
-      </Box>
+      {
+        isError ? "エラーが発生しました" : 
+        <Box 
+        sx={{
+          margin: "0 1rem 1rem 1rem"
+        }}
+        >
+          {isLoading || profileData === undefined || profileData.length === 0 ? "読み込み中" : documentToReactComponents(
+            /* richTextDocument = */ profileData[0].fields.introduction, 
+            /* options = */ richTextOptions
+          )}
+        </Box>
+      }
     </fieldset>
   );
 }

@@ -3,8 +3,8 @@
 
 ## Overview
 <!-- Summary or table of contents -->
-1. sample
-2. example
+1. **sample**
+2. **example**
 
 ## Implementation Details
 <!-- Describe the details of your implementation -->
