@@ -13,10 +13,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient(/* config = */ {
   defaultOptions: {
     queries: {
-      // Contentful へのAPI呼び出しを最小限に
+      retry: 1, 
+      // API呼び出し回数の節約と遷移高速化のため Infinity に設定
       staleTime: Infinity, 
-      gcTime: Infinity, 
-      retry: 1
+      gcTime: Infinity
     }
   }
 });

@@ -27,11 +27,14 @@ export default function Skill( props: SkillProps ){
     queryKey: ["contentful", "skill"], 
     queryFn: async () =>{
       try{
-        const [resSkillItems, resQualificationItems] = await Promise.all(/* values = */ [
+        const [resSkillItems, resQualificationItems] = await Promise.allSettled(/* values = */ [
           client.getEntries<SkillSkeleton>(/* query = */ {content_type: "skill", order: ["sys.createdAt"]}), 
           client.getEntries<QualificationSkeleton>(/* query = */ {content_type: "qualification", order: ["fields.date"]})
         ]);
-        return {skillItems: resSkillItems.items, qualificationItems: resQualificationItems.items};
+        return {
+          skillItems: resSkillItems.status === "fulfilled" ? resSkillItems.value.items : null, 
+          qualificationItems: resQualificationItems.status === "fulfilled" ? resQualificationItems.value.items : null
+        };
       }catch(err){
         console.error("Fetching Contentful data error:", err);
         throw err;
