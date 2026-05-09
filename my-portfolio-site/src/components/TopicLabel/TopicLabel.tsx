@@ -21,6 +21,7 @@ export default function TopicLabel( props: TopicLabelProps ){
 
   return (
     <span 
+    id={props.id} 
     className={clsx("topic-label", props.className)} 
     style={{...props.style, backgroundColor: typeToColor[type]}}
     >

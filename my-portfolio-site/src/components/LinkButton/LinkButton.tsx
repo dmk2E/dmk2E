@@ -8,15 +8,18 @@ type LinkButtonProps = DefaultProps & {
 };
 
 export default function LinkButton( props: LinkButtonProps ){
+  const { sentence, href } = props;
+
   return (
     <a 
-    href={props.href} 
+    id={props.id} 
+    href={href} 
     style={props.style} 
     className={clsx("link-button", props.className)} 
     target="_blank" 
     rel="noopener noreferrer"
     >
-      {props.sentence}
+      {sentence}
     </a>
   );
 }

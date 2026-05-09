@@ -13,12 +13,13 @@ const ALL_SKILLS = [
   "opencv", "unity", "contentful",
   "mysql", "mongodb",
   "react", "nodejs", "express", "rails", "fastapi",
-  "bash", "docker", "git"
+  "bash", "docker", "git", 
+  "other"
 ] as const;
 
 type MySkills = (typeof ALL_SKILLS)[number];
 
-const skillToMetadata: Record<MySkills | "other", SkillMetadata> = {
+const skillToMetadata: Record<MySkills, SkillMetadata> = {
   // language
   cpp: {
     displayName: "C++",
@@ -140,7 +141,17 @@ const skillToMetadata: Record<MySkills | "other", SkillMetadata> = {
  * @returns MySkill 型であるなら true
  */
 function isMySkills(value: string): value is MySkills {
-  return (ALL_SKILLS as readonly string[]).includes(value);
+  return (ALL_SKILLS as readonly string[]).includes(/* searchElement = */ value);
+}
+
+/**
+ * 文字列を MySkills 型に変換する．
+ * 適切な型でない場合は，デフォルト値として "Other" を返す．
+ * @param value 判定対象の文字列
+ * @returns 変換後の MySkills
+ */
+function ensureMySkills(value: string): MySkills {
+  return isMySkills(/* value = */ value) ? value : "other";
 }
 
 /**
@@ -152,7 +163,7 @@ function isMySkills(value: string): value is MySkills {
 function extractByCategory(skills: Array<Entry<SkillSkeleton, "WITHOUT_LINK_RESOLUTION", string>>, category: string): Array<SkillInfo>{
   const filteredSkills = skills.filter(skill => skill.fields.category === category);
   return filteredSkills.map(skill => {
-    const metadata = skillToMetadata[isMySkills(skill.fields.name) ? skill.fields.name : "other"];
+    const metadata = skillToMetadata[ensureMySkills(/* value = */ skill.fields.name)];
     return {
       id: skill.sys.id, 
       name: metadata.displayName, 
@@ -162,5 +173,5 @@ function extractByCategory(skills: Array<Entry<SkillSkeleton, "WITHOUT_LINK_RESO
   });
 }
 
-export { skillToMetadata, extractByCategory, isMySkills };
+export { skillToMetadata, extractByCategory, ensureMySkills };
 export type { MySkills };

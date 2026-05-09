@@ -19,20 +19,23 @@ type SkillSectionProps = DefaultProps & {
 };
 
 export default function SkillSection( props: SkillSectionProps ){
+  const { icon, sectionName, sectionNameColor, skills } = props;
+
   return (
     <fieldset 
+    id={props.id} 
     className={clsx("skill-section", props.className)} 
     style={props.style}
     >
       <legend>
-        {props.icon}
+        {icon}
         <span 
         className="caption" 
         style={{
-          "--outline": props.sectionNameColor
+          "--outline": sectionNameColor
         } as React.CSSProperties}
         >
-          {props.sectionName}
+          {sectionName}
         </span>
       </legend>
       <Box 
@@ -48,7 +51,7 @@ export default function SkillSection( props: SkillSectionProps ){
       }}
       >
         {renderTables(
-          /* skills = */ props.skills, 
+          /* skills = */ skills, 
           /* maxTableRow = */ MAX_TABLE_ROW
         )}
       </Box>
@@ -64,7 +67,7 @@ export default function SkillSection( props: SkillSectionProps ){
         alignItems: "center"
       }}
       >
-        {renderTables(/* skills = */ props.skills)}
+        {renderTables(/* skills = */ skills)}
       </Box>
     </fieldset>
   );

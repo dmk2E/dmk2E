@@ -15,6 +15,7 @@ export default function RelatedLinks( props: RelatedLinksProps ){
   return (
     <nav>
       <fieldset 
+      id={props.id} 
       className={clsx("related-links", props.className)}
       style={props.style}
       >

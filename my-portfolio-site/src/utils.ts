@@ -60,12 +60,12 @@ type TopicType = (typeof topicTypes)[number];
  * @returns 適切なら true
  */
 function isTopicType(value: string): value is TopicType{
-  return (topicTypes as readonly string[]).includes(value);
+  return (topicTypes as readonly string[]).includes(/* searchElement = */ value);
 }
 
 /**
  * 文字列を TopicType 型に変換する．
- * 適切な型でない場合は，デフォルト値として "OTHER" を返します．
+ * 適切な型でない場合は，デフォルト値として "OTHER" を返す．
  * @param value 判定対象の文字列
  * @returns 変換後の TopicType
  */
