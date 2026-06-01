@@ -1,5 +1,7 @@
 import "./Works.css";
 import { useMemo } from "react";
+import { Helmet } from "react-helmet-async";
+// 自作コンポーネント系
 import WorksSection from "@/components/WorksSection/WorksSection";
 // Contentful関係
 import { client, parseDateToNumber } from "@/utils";
@@ -47,12 +49,22 @@ export default function Works( props: WorksProps ){
   if(isLoading)return <p>読み込み中...</p>;
   if(isError)return <p>エラーが発生しました</p>;
 
+  const BASE_URL = window.location.origin;
+
   return (
     <div 
     id="works_page"
     className={props.className} 
     style={props.style}
     >
+      <Helmet>
+        <title>WORKS | dmk2E - My Portfolio</title>
+
+        <link rel="canonical" href={`${BASE_URL}/works`} />
+
+        <meta name="description" content="制作物など" />
+      </Helmet>
+
       <WorksSection
       icon="🛠"  
       sectionName="My Own Project" 
