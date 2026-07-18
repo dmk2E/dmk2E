@@ -146,7 +146,7 @@ function isMySkills(value: string): value is MySkills {
 
 /**
  * 文字列を MySkills 型に変換する．
- * 適切な型でない場合は，デフォルト値として "Other" を返す．
+ * 適切な型でない場合は，デフォルト値として "other" を返す．
  * @param value 判定対象の文字列
  * @returns 変換後の MySkills
  */
