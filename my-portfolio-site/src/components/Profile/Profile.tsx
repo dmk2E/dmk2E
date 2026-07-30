@@ -38,6 +38,8 @@ const richTextOptions: Options = {
 };
 
 export default function Profile( props: ProfileProps ){
+  const { iconImage } = props;
+
   // Contentful からのデータ取得
   const { data: profileData, isLoading, isError } = useQuery(/* options = */ {
     queryKey: ["contentful", "profile"],  
@@ -56,12 +58,13 @@ export default function Profile( props: ProfileProps ){
 
   return (
     <fieldset 
+    id={props.id} 
     className={clsx("profile", props.className)} 
     style={props.style}
     >
       <legend>🧑‍💻<span className="caption">Profile</span></legend>
       <Avatar 
-      src={props.iconImage} 
+      src={iconImage} 
       component={Link}
       href="https://github.com/dmk2E" 
       target="_blank" 

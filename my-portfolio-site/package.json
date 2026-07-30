@@ -21,6 +21,7 @@
     "contentful": "^11.10.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.13.1",
     "simplebar-react": "^3.3.2"
   },

@@ -1,8 +1,9 @@
 import "./Skill.css";
 import type { DefaultProps } from "@/utils";
 import { useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { extractByCategory } from "./Skill.utils";
-// 自作コンポーネント
+// 自作コンポーネント系
 import SkillSection from "@/components/SkillSection/SkillSection";
 import QualificationSection from "@/components/QualificationSection/QualificationSection";
 // アイコン関係
@@ -70,12 +71,22 @@ export default function Skill( props: SkillProps ){
   if(isLoading)return <p>読み込み中...</p>;
   if(isError)return <p>エラーが発生しました</p>;
 
+  const BASE_URL = window.location.origin;
+
   return (
     <div 
     id="skill_page" 
     className={props.className} 
     style={props.style}
     >
+      <Helmet>
+        <title>SKILL | dmk2E - My Portfolio</title>
+
+        <link rel="canonical" href={`${BASE_URL}/skill`} />
+
+        <meta name="description" content="技術スタック" />
+      </Helmet>
+
       <SkillSection 
       icon={
       <img 

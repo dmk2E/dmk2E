@@ -66,7 +66,11 @@ export default function Topics( props: TopicsProps ){
   }, /* deps = */ [rawTopics, sorting, currentFilter]);
 
   return (
-    <fieldset className={clsx("topics", props.className)}>
+    <fieldset 
+    id={props.id} 
+    className={clsx("topics", props.className)}
+    style={props.style}
+    >
       <legend>✨<span className="caption">Topics</span></legend>
       <div 
       className="topics-control-bar" 

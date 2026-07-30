@@ -18,23 +18,26 @@ type WorksSectionProps = DefaultProps & {
 };
 
 export default function WorksSection( props: WorksSectionProps ){
+  const {icon, sectionName, sectionNameColor, heading, works} = props;
+
   return (
     <fieldset 
+    id={props.id} 
     className={clsx("works-section", props.className)} 
     style={props.style}
     >
       <legend>
-        {props.icon}
+        {icon}
         <span 
         className="caption"
         style={{
-          "--outline": props.sectionNameColor
+          "--outline": sectionNameColor
         } as React.CSSProperties } 
-        >{props.sectionName}</span>
+        >{sectionName}</span>
       </legend>
-      <p>{props.heading}</p>
+      <p>{heading}</p>
       <ul>
-        {props.works.map(work => 
+        {works.map(work => 
           <li 
           key={work.sys.id} 
           >

@@ -23,13 +23,16 @@ function handleSummaryToggle(evt: React.SyntheticEvent<HTMLElement>): void{
 }
 
 export default function Achievements( props: AchievementsProps ){
+  const { items } = props;
+
   return (
     <fieldset 
+    id={props.id} 
     className={clsx("achievements", props.className)} 
     style={props.style} 
     >
       <legend>🥇<span className="caption">Achievements</span></legend>
-      {props.items.map(item =>
+      {items.map(item =>
         <details 
         key={item.sys.id} 
         onToggle={handleSummaryToggle}

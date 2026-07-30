@@ -33,6 +33,8 @@ const pages: Array<PagesInfo> = [
 ];
 
 export default function Navbar( props: NavbarProps ){
+  const { position } = props;
+
   // ナビゲーションメニューと紐づけるHTML要素を保持
   const [anchorElNav, setAnchorElNav] = useState<HTMLElement | null>(/* initialState = */ null);
 
@@ -52,7 +54,7 @@ export default function Navbar( props: NavbarProps ){
     <AppBar 
     id="navbar" 
     className={props.className} 
-    position={props.position ? props.position : "fixed"} 
+    position={position ? position : "fixed"} 
     sx={{maxHeight: "10vh"}}
     >
       <Toolbar disableGutters>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- HOMEページ -->
+  <url>
+    <loc>https://dmk2e.onrender.com/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- WORKSページ -->
+  <url>
+    <loc>https://dmk2e.onrender.com/works</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SKILLページ -->
+  <url>
+    <loc>https://dmk2e.onrender.com/skill</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- AWARDSページ -->
+  <url>
+    <loc>https://dmk2e.onrender.com/awards</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+</urlset>

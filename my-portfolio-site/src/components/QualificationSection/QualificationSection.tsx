@@ -14,24 +14,27 @@ type QualificationSectionProps = DefaultProps & {
 };
 
 export default function QualificationSection( props: QualificationSectionProps ){
+  const { icon, sectionName, sectionNameColor, items } = props;
+
   return (
     <fieldset 
+    id={props.id} 
     className={clsx("qualification-section", props.className)} 
     style={props.style}
     >
       <legend>
-        {props.icon}
+        {icon}
         <span 
         className="caption" 
         style={{
-          "--outline": props.sectionNameColor
+          "--outline": sectionNameColor
         } as React.CSSProperties}
         >
-          {props.sectionName}
+          {sectionName}
         </span>
       </legend>
       <ul>
-        {props.items.map(item => <li key={item.sys.id}>{item.fields.name}</li>)}
+        {items.map(item => <li key={item.sys.id}>{item.fields.name}</li>)}
       </ul>
     </fieldset>
   );
